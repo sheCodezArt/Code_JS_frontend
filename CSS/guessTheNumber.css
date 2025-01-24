@@ -1,0 +1,12 @@
+body {
+  background-color: blueviolet;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+}
+
+button {
+  border: none;
+  padding: 20px 30px;
+  background-color: aqua;
+  box-shadow: 2px 4px 6px black;
+}
