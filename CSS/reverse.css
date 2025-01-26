@@ -1,0 +1,26 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: aliceblue;
+  text-align: center;
+}
+button {
+  border: none;
+  padding: 20px 30px;
+  background-color: aqua;
+  font-weight: 600;
+}
+
+#display {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+#display2 {
+  /*padding-top: 20px;*/
+  padding-bottom: 20px;
+  font-weight: bold;
+}

@@ -1,0 +1,41 @@
+body {
+  background-color: #111;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff097;
+}
+
+button {
+  border: none;
+  background-color: #900;
+  font-weight: 600;
+  padding: auto;
+  width: 40px;
+  height: 30px;
+}
+
+#cover {
+  border: solid #fff 1px;
+  /*height: 48px;*/
+  width: 200px;
+  margin-bottom: 38px;
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+  padding: 15px 25px;
+}
+
+.clean {
+  padding: 20px 30px;
+  width: 80px;
+  height: 5vh;
+  margin: 20px;
+  text-align: center;
+  background-color: #078;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
