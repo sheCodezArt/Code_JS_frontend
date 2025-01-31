@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Confirm Age</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(60deg, #000, #111, #222, #333, #444, #555, #666, #777, #888, #999, #aaa, #bbb, #ccc, #ddd, #eee, #fff);
+      height: 100vh;
+    }
+    div {
+      padding: 20px 30px;
+      font-weight: bold;
+      background-color: #fff;
+      width: 200px;
+      /* height: 30px; */
+      text-align: center;
+      /* margin-bottom: 25px; */
+    }
+    button {
+      border: solid white 2.5px;
+      background: linear-gradient(to right, #4567b7, #6495ed, #87ceeb);
+      -webkit-box-shadow: 4px 6px 8px #355;
+      -moz-box-shadow: 4px 6px 8px #355;
+      box-shadow: 4px 6px 8px #355;
+      padding: 20px 50px;
+      color: #fff;
+      font-family: Georgia;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div id="display"></div>
+  <button onclick="enter()">Enter Age</button>
+  <button onclick="confirm()">Confirm Age</button>
+  
+  <script src="confirmAge.js"></script>
+</body>
+</html>

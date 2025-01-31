@@ -159,6 +159,69 @@ Create a simple "Rock, Paper, Scissors" game against the computer using if state
 
 ---
 
-These exercises allow you to build skills with a mix of creativity and logic. Let me know if you’d like any of these expanded into full problem descriptions or detailed guidance.
+### Objects & Classes
 
+#### Exercises
+
+1. Create an object called `person` with properties `name`, `age`, and `occupation`. Log each property to the console.
+2. Write a function that takes an object as an argument and returns the sum of all its numeric properties.
+3. Create an object called `car` with properties `make`, `model`, and `year`. Add a method called `honk` that logs "Honk honk!" to the console.
+4. Write a function that takes an object and a property name as arguments, and returns the value of that property.
+5. Create an array of objects, where each object represents a book with properties `title`, `author`, and `pages`. Log the title of each book to the console.
+6. Write a function that takes an array of objects and returns a new array with only the objects that have a certain property.
+7. Create a class called `Dog` with properties `name`, `breed`, and `age`. Add a method called `bark` that logs "Woof!" to the console.
+8. Write a function that takes a class and a property name as arguments, and returns the value of that property for a new instance of the class.
+9. Create an object called `rectangle` with properties `width` and `height`. Add a method called `area` that returns the area of the rectangle.
+10. Write a function that takes an object and returns a new object with the same properties, but with all property names converted to uppercase.
+
+#### Mini-Games
+1. *Guess the Property*: Create an object with several properties, and then write a function that takes a property name as an argument and returns the value of that property. Test the function by guessing different property names.
+2. *Object Scavenger Hunt*: Create an object with several nested objects and arrays. Write a function that takes a property path as an argument (e.g. "person.address.street") and returns the value at that path.
+3. *Classy Cars*: Create a class called `Car` with properties `make`, `model`, and `year`. Create several instances of the class and store them in an array. Write a function that takes the array as an argument and returns the average year of all the cars.
+4. *Dog Show*: Create a class called `Dog` with properties `name`, `breed`, and `age`. Create several instances of the class and store them in an array. Write a function that takes the array as an argument and returns the oldest dog.
+5. *Rectangle Rodeo*: Create an object called `rectangle` with properties `width` and `height`. Add a method called `area` that returns the area of the rectangle. Write a function that takes the rectangle object as an argument and returns a new rectangle object with the same area, but with different dimensions.
+
+#### Challenges
+1. *Deep Copy*: Write a function that takes an object as an argument and returns a deep copy of the object (i.e. a new object with the same properties and values, but with no shared references).
+2. *Object Merge*: Write a function that takes two objects as arguments and returns a new object that combines the properties of both objects.
+3. *Class Inheritance*: Create a class called `Animal` with properties `name` and `age`. Create a subclass called `Dog` that inherits from `Animal` and adds a property `breed`. Create an instance of the `Dog` class and log its properties to the console.
+4. *Object Prototype*: Write a function that takes an object as an argument and returns its prototype chain (i.e. the sequence of objects that the original object inherits from).
+5. *Class Composition*: Create a class called `University` with properties `name` and `departments`. Create a subclass called `Department` that has properties `name` and `courses`. Create an instance of the `University` class and add several departments to it. Log the university's departments and their courses to the console.
+
+______________
+
+### Weekend Games
+
+1. Hangman
+2. Countdown
+3. Tic Tac Toe
+4. Guess the word
+5. Timer
+6. Calculator
+
+10 exercises and 10 theory questions on closures:
+
+Exercises
+1. *Counter*: Create a function `createCounter` that returns a counter function. Each time the counter function is called, it increments and returns the current count.
+2. *Private Variables*: Implement a `BankAccount` class using closures. The class should have private variables for `balance` and `accountNumber`, and public methods for `deposit`, `withdraw`, and `getBalance`.
+3. *Data Hiding*: Create a function `createSecretMessage` that returns a function. The returned function takes a message as an argument and returns the message encrypted with a secret key. The secret key should be hidden from the outside scope.
+4. *Callback Functions*: Implement a `setTimeout` function using closures. The function should take a callback function and a delay as arguments and execute the callback function after the specified delay.
+5. *Function Factory*: Create a function `createAdder` that returns a function. The returned function takes a number as an argument and returns the sum of the number and a fixed value.
+6. *Closure Chain*: Implement a function `createChain` that returns a function. The returned function takes a value as an argument and returns a new function that takes another value as an argument. The chain should continue until a terminal value is reached.
+7. *Memoization*: Create a function `createMemoizer` that returns a function. The returned function takes a function as an argument and returns a memoized version of the function.
+8. *Event Handler*: Implement a function `createEventHandler` that returns a function. The returned function takes an event type as an argument and returns a new function that handles the event.
+9. *Generator*: Create a function `createGenerator` that returns a function. The returned function generates a sequence of numbers on each call.
+10. *Logger*: Implement a function `createLogger` that returns a function. The returned function logs messages to the console with a prefix.
+
+Theory Questions
+1. What is a closure in JavaScript, and how is it created?
+2. What is the difference between a closure and a regular function?
+3. How do closures interact with the outer scope, and what are the implications?
+4. Can you explain the concept of "data hiding" in the context of closures?
+5. How do closures enable the creation of private variables and functions?
+6. What is the relationship between closures and higher-order functions?
+7. Can you describe a scenario where a closure would be useful for managing state?
+8. How do closures differ from object-oriented programming concepts like encapsulation?
+9. Can you explain the concept of a "closure chain" and provide an example?
+10. How do closures impact the performance and memory usage of a JavaScript application?
 

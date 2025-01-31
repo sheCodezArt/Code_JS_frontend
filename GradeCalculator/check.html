@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Grade Calculator</title>
+  <style>
+    body {
+      color: #000;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(60deg, #4567b7, #6495ed, #87ceeb, #4682b4, #66CCCC, #003366, #032B44);
+      height: 100vh;
+    }
+    table {
+        border-collapse: collapse;
+        width: 50%;
+        margin: 40px auto;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+    th {
+        background-color: #eee;
+        padding: 20px;
+    }
+    button {
+      border: solid white 2.5px;
+      background: linear-gradient(to right, #4567b7, #6495ed, #87ceeb);
+      box-shadow: 4px 6px 8px #355;
+      padding: 20px 50px;
+      color: #fff;
+      font-family: Georgia;
+      margin-top: 25px;
+      cursor: pointer;
+    }
+    div {
+      width: 250px;
+      padding: 30px 20px;
+      background-color: #ddd;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="display"></div>
+  <table>
+    <tr>
+      <th colspan="3">Dashboard</th>
+    </tr>
+    <tr>
+      <td>Names</td>
+      <td>Scores</td>
+      <td>Grades</td>
+    </tr>
+    <tr>
+      <td>Anna</td>
+      <td>97</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Elsa</td>
+      <td>91</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Melody</td>
+      <td>90</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Tina</td>
+      <td>89</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <td>Flora</td>
+      <td>85</td>
+      <td>B</td>
+    </tr>
+  </table>
+  <button onclick="checkName()">Check Name</button>
+  
+  <script src="check.js"></script>
+</body>
+</html>
