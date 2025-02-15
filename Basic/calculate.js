@@ -1,4 +1,4 @@
-function calculator(a, b, operator) {
+/*function calculator(a, b, operator) {
   
   if (operator === "+") {
     return a+b;
@@ -24,5 +24,8 @@ let number2 = Number(prompt("Enter a second number:"));
 
 let result = calculator(number1, number2, operator);
 
-console.log(result);
+console.log(result);*/
+
+
+function display(element)
 

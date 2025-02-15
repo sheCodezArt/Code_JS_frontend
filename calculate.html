@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  
+  <style>
+    body {
+      background: #120d55;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .toggle {
+      background: #def;
+      padding: 20px 30px;
+      font-weight: bold;
+    }
+    .wrapper {
+      border: solid #ddd 2px;
+      border-radius: 20px;
+      background: #222; /* Dark theme */
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      width: 300px;
+    }
+    .text {
+      grid-column: span 4;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      text-align: right;
+      font-size: 1.5em;
+      background: black;
+      color: white;
+    }
+    button {
+      padding: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+      background: #333;
+      border: none;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:active {
+      background: #444;
+    }
+    .into {
+      background: #1976D2;
+      grid-row: span 2; /* Make '=' button span two rows */
+    }
+    .into:active {
+      background: #1565C0;
+    }
+  </style>
+</head>
+<body>
+  <span class="toggle">Switch Modes</span><br>
+  <div class="wrapper">
+    <input class="text" type="text" readonly>
+    
+    <button>C</button>
+    <button>÷</button>
+    <button>×</button>
+    <button>Del</button>
+
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>-</button>
+
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>+</button>
+
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button class="into">=</button> <!-- Now correctly placed and spans two rows -->
+
+    <button>%</button>
+    <button>0</button>
+    <button>.</button>
+  </div>
+</body>
+</html>
