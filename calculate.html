@@ -14,12 +14,12 @@
       flex-direction: column;
       height: 100vh;
     }
-    .toggle {
+    #toggle {
       background: #def;
       padding: 20px 30px;
       font-weight: bold;
     }
-    .wrapper {
+    #wrapper {
       border: solid #ddd 2px;
       border-radius: 20px;
       background: #222; /* Dark theme */
@@ -29,7 +29,7 @@
       gap: 10px;
       width: 300px;
     }
-    .text {
+    #text {
       grid-column: span 4;
       padding: 15px;
       border: none;
@@ -54,7 +54,7 @@
     }
     .into {
       background: #1976D2;
-      grid-row: span 2; /* Make '=' button span two rows */
+      grid-row: span 2;
     }
     .into:active {
       background: #1565C0;
@@ -62,33 +62,36 @@
   </style>
 </head>
 <body>
-  <span class="toggle">Switch Modes</span><br>
-  <div class="wrapper">
-    <input class="text" type="text" readonly>
+  <span id="toggle">Switch Modes</span><br>
+  <div id="wrapper">
+    <input id="text" type="text" readonly>
     
-    <button>C</button>
-    <button>÷</button>
-    <button>×</button>
-    <button>Del</button>
+    <button onclick="wipe()" id="clean">C</button>
+    <button onclick="calculator('÷')" id="div">÷</button>
+    <button onclick="calculator('×')" id="times">×</button>
+    <button onclick="delete()" id="del">Del</button>
 
-    <button>7</button>
-    <button>8</button>
-    <button>9</button>
-    <button>-</button>
+    <button onclick="calculator(7)" id="seven">7</button>
+    <button onclick="calculator(8)" id="eight">8</button>
+    <button onclick="calculator(9)" id="nine">9</button>
+    <button onclick="calculator('-')" id="sub">-</button>
 
-    <button>4</button>
-    <button>5</button>
-    <button>6</button>
-    <button>+</button>
+    <button onclick="calculator(4)" id="four">4</button>
+    <button onclick="calculator(5)" id="five">5</button>
+    <button onclick="calculator(6)" id="six">6</button>
+    <button onclick="calculator('+')" id="add">+</button>
 
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button class="into">=</button> <!-- Now correctly placed and spans two rows -->
+    <button onclick="calculator(1)" id="one">1</button>
+    <button onclick="calculator(2)" id="two">2</button>
+    <button onclick="calculator(3)" id="three">3</button>
+    <button onclick="calculator(answer())" id="into" class="into">=</button>
 
-    <button>%</button>
-    <button>0</button>
-    <button>.</button>
+    <button onclick="calculator('%')" id="per">%</button>
+    <button onclick="calculator(0)" id="zero">0</button>
+    <button onclick="calculator('.')" id="dot">.</button>
   </div>
+
+
+  <script src="Basic/calculate.js"></script>
 </body>
 </html>

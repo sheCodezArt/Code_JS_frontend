@@ -22,8 +22,15 @@ function checkTime() {
     document.button.style.background = "transparent";
     document.button.style.color = "transparent";
   }
-  else if ((time > 22 && time <= 24) || (time >= 1 && time <= 5)) {
-    alert(`Good night! It is ${time}pm/am`);
+  else if (time > 22 && time <= 24) {
+    alert(`Good night! It is ${time}pm`);
+    document.body.style.background = "blue";
+    document.getElementById('skylight').style.background = "white";
+    document.button.style.background = "transparent";
+    document.button.style.color = "transparent";
+  }
+  else if (time >= 1 && time <= 5) {
+    alert(`Sleep well! It is ${time}am`);
     document.body.style.background = "blue";
     document.getElementById('skylight').style.background = "white";
     document.button.style.background = "transparent";

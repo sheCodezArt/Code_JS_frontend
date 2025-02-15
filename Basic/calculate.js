@@ -27,5 +27,32 @@ let result = calculator(number1, number2, operator);
 console.log(result);*/
 
 
-function display(element)
+function add() {
+
+  let text = document.getElementById("text").value;
+  let numbers = text.split("+");
+  let sum = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    sum += Number(numbers[i]);
+  }
+
+  document.getElementById("text").value = sum;
+
+}
+
+function calculator(value) {
+  document.getElementById("text").value += value;
+
+  if (value === "+") {
+    add();
+  }
+
+}
+
+function wipe() {
+  document.getElementById("text").innerHTML = "";
+}
+  
+
 
