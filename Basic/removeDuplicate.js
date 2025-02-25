@@ -1,4 +1,13 @@
-let array = [2, 4, 6, 7, 8, 7, 1];
+let array = [];
+
+let n = Number(prompt("Enter the number of elements you desire in this array. Feel free to repeat numbers as this game is to remove repeated numbers: "));
+
+for (let i = 0; i < n; i++) {
+
+  let eachElement = Number(prompt(`Element ${i} is: `));
+  array.push(eachElement);
+
+}
 
 document.getElementById('display').innerHTML = `Original Array: ${array}`;
 

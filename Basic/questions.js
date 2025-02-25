@@ -1,5 +1,15 @@
 function yes() {
   document.getElementById("display").innerHTML = "What is your name?";
+
+  let inputField = document.createElement('input');
+
+  let name = "";
+
+  inputField.addEventListener('input', (e) => {
+    inputField
+  })
+
+
 }
 
 function no() {

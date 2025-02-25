@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variable Value</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      /* background-color: antiquewhite; */
+      animation: change infinite 12s ease-in-out;
+      transition: all;
+    }
+    @keyframes change {
+      0% {
+        background-color: #050518;
+      }
+      10% {
+        background-color: #0909ff;
+      }
+      20% {
+        background-color: #9b9bff;
+      }
+      30% {
+        background-color: #cfcfff;
+      }
+      40% {
+        background-color: #ccccd6;
+      }
+      50% {
+        background-color: #535370;
+      }
+      60% {
+        background-color: #535370;
+      }
+      70% {
+        background-color: #ccccd6;
+      }
+      80% {
+        background-color: #cfcfff;
+      }
+      90% {
+        background-color: #4646f1;
+      }
+      100% {
+        background-color: #050518;
+      }
+    }
+    p {
+      font-size: 50px;
+      font-weight: bold;
+      color: blueviolet;
+      line-height: 20px;
+      letter-spacing: 2px;
+      animation: move 12s infinite ease-in-out;
+      transition: all;
+    }
+    @keyframes move {
+      0% {
+        font-size: 1px;
+        transform: rotateY('72deg');
+        color: blue;
+      }
+      10% {
+        font-size: 10px;
+        transform: rotateY('144deg');
+        color: #0a0a7c;
+      }
+      20% {
+        font-size: 20px;
+        transform: rotateY('216deg');
+        color: #040453;
+      }
+      30% {
+        font-size: 30px;
+        transform: rotateY('288deg');
+        color: #050518;
+      }
+      40% {
+        font-size: 40px;
+        transform: rotateY('360deg');
+        color: #41419c;
+      }
+      50% {
+        font-size: 50px;
+        transform: rotateY('288deg');
+        color: #303081;
+      }
+      60% {
+        font-size: 40px;
+        transform: rotateY('216deg');
+        color: #6767ff;
+      }
+      70% {
+        font-size: 30px;
+        transform: rotateY('144deg');
+        color: #aeaee0;
+      }
+      80% {
+        font-size: 20px;
+        transform: rotateY('72deg');
+        color: #6969ca;
+      }
+      90% {
+        font-size: 10px;
+        transform: rotateY('36deg');
+        color: #0f0f47;
+      }
+      100% {
+        font-size: 1px;
+        transform: rotateY('0deg');
+        color: blue;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <p>Check the console!</p>
+
+
+  <script src="varValueCon.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+alert("There is a JS file in this html file! Use inspect to confirm");
