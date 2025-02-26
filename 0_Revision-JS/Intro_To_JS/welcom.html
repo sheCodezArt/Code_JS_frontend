@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Greet</title>
+  <title>Welcome</title>
   <style>
     body {
       display: flex;
@@ -17,11 +17,6 @@
       gap: 25px;
       font-size: 60px;
     }
-    /* div {
-      display: none;
-      animation: zoomIn ease-in-out linear 1s;
-      transition: all 0.5s;
-    } */
     button {
       padding: 10px 20px;
       font-size: 20px;
@@ -35,23 +30,14 @@
     button:hover {
       background-color: #333;
     }
-    @keyframes zoomIn {
-      from {
-        transform: scale(0);
-      }
-      to {
-        transform: scale(1);
-      }
-      
-    }
   </style>
 </head>
 <body>
   
   <div id="show"></div>
-  <button onclick="userInput()">click</button>
-  <button onclick="manual()">Press</button>
+  <button onclick="welcome()">Click Me</button>
 
-  <script src="greet.js"></script>
+
+  <script src="welcome.js"></script>
 </body>
 </html>
