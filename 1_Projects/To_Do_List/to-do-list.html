@@ -110,39 +110,48 @@
     }
     
     li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       background-color: #fff;
-      text-align: left;
-      padding: 10px 17px;
-      /* width: 100%; */
-      /* font-weight: bold; */
+      padding: 10px;
       box-sizing: border-box;
       margin-bottom: 10px;
-      width: 250px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: inset 0 0 10px #000;
+      /* gap: 10px; */
     }
-    
-    img {
-  display: flex;
-  gap: 10px;
-  width: 20px;
-}
 
-.edit-icon, .delete-icon {
-  background-color: yellow;
-  padding: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    .task-images {
+      display: flex;
+      gap: 5px;
+    }
+
+    .task-images img {
+      background-color: #ff0000;
+      padding: 5px;
+      border-radius: 5px;
+      width: 15px;
+      height: 15px;
+    }
+
+    .task-images img:hover {
+      cursor: pointer;
+      background-color: #f87777;
+    }
+
   </style>
 </head>
 <body>
 
   <div id="main-moon">
-    <img src="head-moon.png" alt="moon with stars" id="moon-stars">
+    <img src="img/head-moon.png" alt="moon with stars" id="moon-stars">
   </div>
 
   <div class="container">
     <div id="change-mode">
-      <img src="moon.png" alt="crescent moon" id="moon">
+      <img src="img/moon.png" alt="crescent moon" id="moon">
     </div>
     <h1>To Do List</h1>
     <div class="sec-row">
