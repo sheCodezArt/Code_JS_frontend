@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirm</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      /* flex-direction: column; */
+    }
+    button {
+      border: none;
+      background-color: #12a;
+      padding: 12px 22px;
+      color: #fff;
+      margin-left: 10px;
+      font-weight: bold;
+      width: 120px;
+    }
+    button:hover {
+      cursor: pointer;
+      background-color: #919dff;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button id="btn">Learn More</button>
+    <button onclick="changeBtn()">Change</button>
+  </div>
+
+
+  <script>
+    // confirm("are you good");
+    let counter = 0;
+
+    function changeBtn() {
+      document.getElementById('btn').style.background = 'black';
+      counter++;
+
+      if (counter == 1) {
+        document.body.style.background = 'pink';
+      }
+      else if (counter == 2) {
+        document.getElementById('btn').style.background = 'purple';
+        document.getElementById('btn').style.color = 'white';
+        document.getElementById('btn').style.fontWeight = 'bold';
+      }
+      else if (counter == 3) {
+        document.getElementById('btn').innerHTML = 'Good Job';
+      }
+      else {
+        document.getElementById('btn').innerHTML = 'done';
+      }
+    }
+  </script>
+</body>
+</html>
