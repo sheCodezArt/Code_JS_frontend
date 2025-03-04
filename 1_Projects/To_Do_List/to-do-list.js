@@ -124,6 +124,51 @@ function addTask() {
     olElement.appendChild(eachTask);
 
     inputSpace.value = '';
+    
+    // switch modes
+    document.getElementById('change-mode').addEventListener('click', function () {
+  const body = document.body;
+  const container = document.querySelector('.container');
+  const h1 = document.querySelector('h1');
+  const input = document.querySelector('input');
+  const button = document.querySelector('button');
+  const tasks = document.querySelectorAll('li');
+  const taskTexts = document.querySelectorAll('li span');
+  const moonIcon = document.getElementById('moon');
+
+  // Toggle dark/light mode
+  if (body.classList.contains('light-mode')) {
+    // Switch to dark mode
+    body.classList.remove('light-mode');
+    body.style.background = "#060605";
+    container.style.background = "#252323";
+    h1.style.color = "#006199";
+    input.style.boxShadow = "#fff -3px -1px 3px";
+    button.style.background = "#006199";
+    button.style.color = "white";
+    tasks.forEach(task => task.style.background = "#fff");
+    taskTexts.forEach(text => text.style.color = "#000");
+    moonIcon.src = "img/moon.png"; // Dark mode icon
+  } else {
+    // Switch to light mode
+    body.classList.add('light-mode');
+    body.style.background = "#ffffff";
+    container.style.background = "#dddddd";
+    h1.style.color = "#333";
+    input.style.boxShadow = "#000 -3px -1px 3px";
+    button.style.background = "#333";
+    button.style.color = "white";
+    tasks.forEach(task => task.style.background = "#f5f5f5");
+    taskTexts.forEach(text => text.style.color = "#000");
+    moonIcon.src = "img/sun.png"; // Light mode icon
+  }
+});
   }
 }
+
+// function switch() {
+//   const bdElement = document.getElementByTagName('body');
+  
+//   bdElement.style.background = "white";
+// }
 

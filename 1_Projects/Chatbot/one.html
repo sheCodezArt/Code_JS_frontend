@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    button {
+      padding: 12px 22px;
+      border: none;
+      background-color: green;
+      border-radius: 12px;
+    }
+    .divp{
+      background-color: darkblue;
+      text-align: center;
+      display: none;
+      border-radius: 30px;
+      padding: 15px 25px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .divp p{
+      font-size: 25px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="alertPopup()">Click me </button>
+  <div class="divp" id="popfeat">
+    <p id="popup-text"></p>
+    <button id="close-btn">Close</button>
+  </div>
+  <script>
+    let count = 0;
+    function alertPopup() {
+      document.getElementById('popfeat').style.display = "block";
+      count++;
+      if (count == 1) {
+        document.getElementById('popup-text').innerHTML = "Here you go";
+      } else if (count == 2) {
+        document.getElementById('popup-text').innerHTML = "Stay safe";
+      } else {
+        document.getElementById('popup-text').innerHTML = "Take care";
+        count = 0; // Reset the counter
+      }
+    }
+
+    document.getElementById('close-btn').addEventListener('click', () => {
+      document.getElementById('popfeat').style.display = "none";
+    });
+  </script>
+</body>
+</html>
