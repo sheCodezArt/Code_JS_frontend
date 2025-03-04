@@ -1,23 +1,40 @@
+/* FIRST EVER TO DO LIST PROJECT */
+
+// CREATED THE WHOLE LIST
 // let olElement;
 
+// ADDED A FUNCTION TAT ADDS TASKS TO THE LIST
 // function addTask() {
 //   const inputSpace = document.getElementById('text');
   
+// CREATED A VARIABLE THAT STORES THE VALUE ENTERED BY USER IN THE INPUT ELEMENT
 //   let task = inputSpace.value.trim();
   
+// IF STATEMENT IF CHECKS THE VALUE ENTERED BY USER IS NOT EMPTY
 //   if (task) {
+
+// CHECKS IF THE OL ELEMENT IS NOT CREATED
 //     if (!olElement) {
+
+// CREATES OL ELEMENT
 //       olElement = document.createElement('ol');
       
 //       const displayDiv = document.querySelector('.container');
       
+// ADDS THE OL ELEMENT TO THE CONTAINER DIV TO ALLOW ALL TASKS TO BE DISPLAYED ON THE PAGE
 //       displayDiv.appendChild(olElement);
 //     }
+
+// CREATES LI ELEMENTS FOR EACH TASK
 //     let eachTask = document.createElement('li');
+
+// ADDS THE STRING OR TASK VALUE ENTERED BY USER TO THE LI ELEMENT
 //     eachTask.textContent = task;
     
+// ADDS LI ELEMENT TO THE OL ELEMENT
 //     olElement.appendChild(eachTask);
     
+// CLEARS THE INPUT SPACE AFTER ADDING THE TASK
 //     inputSpace.value = '';
 //   }
 // }
