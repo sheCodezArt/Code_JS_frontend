@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Order</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    
+    body {
+      background-color: #121212;
+      color: #fff;
+    }
+
+    .container {
+      /* max-width: 1100px; */
+      width: 100%;
+      margin: auto;
+      position: fixed;
+    }
+    
+    #searchBtn {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background: #ddd;
+      color: #000;
+      font-weight: bold;
+    }
+
+    /* NAVIGATION */
+    #nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+      background: #222;
+      padding: 0 20px;
+    }
+
+    #logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .menuItems {
+      display: flex;
+      list-style: none;
+    }
+
+    .menuItems li {
+      margin: 0 15px;
+    }
+
+    .menuItems li a {
+      text-decoration: none;
+      color: #fff;
+      padding: 10px;
+      transition: 0.3s;
+    }
+
+    .menuItems li a:hover {
+      color: #00adb5;
+    }
+
+    /* SEARCH BAR */
+    #search-box {
+      padding: 7px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    /* MOBILE MENU */
+    #menu-toggle {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    /* SECTIONS */
+    main {
+      padding: 50px 20px;
+    }
+
+    section {
+      padding: 50px 0;
+      /* text-align: center; */
+      border-bottom: 1px solid #333;
+    }
+    #home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+    #home div {
+      width: 50%;
+      max-width: 400px;
+      padding: auto;
+      margin: 30px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #222;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    /* Media Queries */
+    
+    @media (max-width: 768px) {
+      .menuItems {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #222;
+        width: 50%;
+        padding: 20px;
+      }
+      
+      #search-box {
+        width: 90px;
+      }
+
+      .menuItems.show {
+        display: flex;
+      }
+
+      #menu-toggle {
+        display: block;
+      }
+      
+      #home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 10px;
+      }
+      #home div {
+        width: 100%;
+        margin: 10px;
+        max-width: 380px;
+        padding: 20px;
+      }
+      
+      #home div h2 {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav id="nav" class="container">
+      <div id="logo">Logo</div>
+      <div>
+        <input type="text" id="search-box" placeholder="Search...">
+        <button id="searchBtn">OK</button>
+      </div>
+      <div id="menu-toggle">☰</div>
+      <ul class="menuItems">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <div>
+        <h2>Welcome to Our Website</h2>
+        <p>Discover amazing services tailored just for you.</p>
+      </div>
+      <div style="background: white;">
+        <img src="" alt="">
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>We are dedicated to providing the best solutions.</p>
+    </section>
+
+    <section id="services">
+      <h2>Our Services</h2>
+      <p>Explore our wide range of services to help you.</p>
+    </section>
+
+    <section id="reviews">
+      <h2>Customer Reviews</h2>
+      <p>See what our customers have to say.</p>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <p>&copy; 2025. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+     document.getElementById("menu-toggle").addEventListener("click", function () {
+      document.querySelector(".menuItems").classList.toggle("show");
+    });
+  </script>
+
+</body>
+</html>
