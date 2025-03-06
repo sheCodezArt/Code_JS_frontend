@@ -13,6 +13,10 @@
       font-family: Arial, sans-serif;
     }
     
+    html {
+      scroll-behavior: smooth;
+    }
+    
     body {
       background-color: #121212;
       color: #fff;
@@ -93,20 +97,23 @@
 
     /* SECTIONS */
     main {
-      padding: 50px 20px;
+      /* padding: 50px 20px; */
     }
 
     section {
-      padding: 50px 0;
+      padding: 50px 20px;
       /* text-align: center; */
-      border-bottom: 1px solid #333;
+      /* border-bottom: 1px solid #333; */
+      min-height: 100vh;
     }
     #home {
       display: flex;
+      margin: 0;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      /* padding: 30px; */
+      /* background: #8a8a8a;
+      color: #000; 
+      padding: 30px 50px; */
     }
     #home div {
       width: 70%;
@@ -127,13 +134,62 @@
     }
 
     .welcom-img {
-      position: absolute;
+      /* position: absolute; */
       max-width: 1500px;
       height: auto;
       padding: 0;
       margin: 0;
       /* transform: translate(0, 0); */
     }
+    
+      /* About Section */
+  #about {
+    background: #023202;
+    text-align: center;
+    padding: 50px 20px;
+  }
+
+  #abt-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .row div {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+  }
+
+  .row div img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  #product-gallery {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 20px;
+  white-space: nowrap;
+}
+
+#product-gallery img {
+  width: 300px;
+  height: auto;
+  border-radius: 5px;
+}
+
 
     /* FOOTER */
     footer {
@@ -188,8 +244,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin: 0;
         width: 100%;
-        padding: 10px;
+        padding: 10px 0;
       }
       #home div {
         width: 100%;
@@ -198,8 +255,21 @@
         padding: 20px;
       }
       
+      /* home section */
       #home div h2 {
         text-align: center;
+      } 
+      .welcom-img {
+        max-width: 280px;
+      }
+      
+      /* About section */
+      .row {
+        display: flex;
+        flex-direction: column;
+      }
+      #about p {
+        margin: 10px 0 20px 0;
       }
     }
   </style>
@@ -229,7 +299,7 @@
     <section id="home">
       <div>
         <h2>Welcome to Our Website</h2>
-        <p>Tired of browsing endless tabs? <b><i>Sheila</i></b> is here! Curated collections, unbeatable deals, and a seamless shopping experience. Discover what you've been missing. Shop @sheila today!</p>
+        <p>Tired of browsing endless tabs? <b><i>Sheila</i></b> is here! Curated collections, unbeatable deals, and a seamless shopping experience. Discover what you've been missing. Shop <a href="#" style="color: green;">@sheila</a> today!</p>
       </div>
       <div id="wel-div">
         <img class="welcom-img" src="img/another.png" alt="Customer services">
@@ -237,8 +307,46 @@
     </section>
 
     <section id="about">
-      <h2>About Us</h2>
-      <p>We are dedicated to providing the best solutions.</p>
+      <h2 style="text-align: center;">About Us</h2>
+      <p>
+        At Sheila, we are dedicated to providing the best solutions tailored to meet the evolving needs of our clients. Our commitment to excellence is reflected in every aspect of our work, from the expertise of our team to the efficiency of our processes and the unwavering support we offer.
+      </p>
+      <div id="abt-grid">
+        <div class="row">
+          <div>
+            <h3>Our Team</h3>
+            <p>Our team is built on a foundation of skill, passion, and dedication. Every member brings a wealth of knowledge and experience, ensuring that we not only meet expectations but consistently exceed them. We believe in continuous learning and staying ahead of industry trends to deliver innovative and effective solutions.</p>
+            <img width="300px" src="img/pg1.jpeg" alt="">
+          </div>
+          <div>
+            <h3>We Prioritize Your Comfort</h3>
+            <p>At Sheila, we prioritize efficiency without compromising quality. Our streamlined processes, strategic planning, and attention to detail ensure that every project is executed with precision and delivered on time. We take pride in our ability to solve challenges quickly and effectively, making sure our clients experience seamless and hassle-free solutions.</p>
+            <img width="300px" src="img/pg1.jpeg" alt="">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <h3>Customer Services</h3>
+            <p>Clear and open communication is at the heart of everything we do. We listen attentively to our clients, understand their unique needs, and provide transparent updates throughout the process. Our collaborative approach fosters trust, ensuring that every solution is aligned with the client’s vision and objectives.</p>
+            <img width="300px" src="img/pg1.jpeg" alt="">
+          </div>
+          <div>
+            <h3>Reliable Support</h3>
+            <p>Effective management is key to our success. Our leadership ensures smooth coordination between teams, optimizing workflows for maximum productivity. Beyond delivering solutions, we are committed to providing ongoing support. Whether it’s guidance, troubleshooting, or continuous improvement, we stand by our clients every step of the way.</p>
+            <img width="300px" src="img/pg1.jpeg" alt="">
+          </div>
+        </div>
+      </div>
+      <p>At Sheila, we don’t just offer solutions—we create lasting value. With a team that is knowledgeable, responsive, and results-driven, we are here to help you achieve success effortlessly.</p>
+      <div id="product-gallery">
+  <img src="img/pg1.jpeg" alt="Category 1">
+  <img src="img/pg1.jpeg" alt="Category 2">
+  <img src="img/pg1.jpeg" alt="Category 3">
+  <img src="img/pg1.jpeg" alt="Category 4">
+  <img src="img/pg1.jpeg" alt="Category 5">
+  <img src="img/pg1.jpeg" alt="Category 6">
+  <img src="img/logo.png" alt="Category 7">
+</div>
     </section>
 
     <section id="services">
