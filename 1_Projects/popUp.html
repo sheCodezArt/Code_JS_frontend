@@ -1,0 +1,188 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Word Guess Game</title>  
+  <style>  
+    * {  
+      padding: 0;  
+      margin: 0;  
+      box-sizing: border-box;  
+    }  
+    body {  
+      display: flex;  
+      flex-direction: column;  
+      background: purple;  
+      height: 100vh;  
+      align-items: center;  
+      justify-content: center;  
+      gap: 20px;  
+    }  
+    .container {  
+      display: grid;  
+      grid-template-columns: repeat(5, 1fr);  
+      grid-template-rows: repeat(6, 1fr);  
+      gap: 7px;  
+      width: 60%;  
+      max-width: 1200px;  
+    }  
+    .container div {  
+      background-color: black;  
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;  
+      justify-content: center;  
+      align-items: center;  
+      height: 80px;  
+      border-radius: 5px;  
+      box-shadow: 1px 1px 10px #ddd;  
+    }  
+    .bg {  
+      display: flex;  
+      flex-direction: column;  
+      background-color: #380538;  
+      width: 100%;  
+      min-height: 200px;  
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }  
+    .keys {  
+      display: flex;  
+      justify-content: center;  
+      flex-wrap: wrap;
+    }  
+    .key {  
+      width: 50px;  
+      height: 50px;  
+      font-size: 1.5rem;  
+      padding: 15px;  
+      color: #fff;  
+      border-radius: 5px;  
+      text-align: center;  
+      font-weight: bold;  
+      margin: 5px;
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      background-color: #777;  
+      cursor: pointer;
+    }  
+    .key:hover {
+      background-color: #555;
+    }
+    #del {  
+      width: 80px;  
+    }  
+    .sub {  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      margin-top: 10px;
+    }  
+    .sub span {  
+      width: 150px;  
+      border-radius: 7px;  
+      font-size: 1.3rem;  
+      padding: 10px;  
+      background: #999;  
+      text-align: center;  
+      color: #fff;  
+      font-weight: bold;  
+      cursor: pointer;
+    }  
+  </style>  
+</head>  
+<body>    
+  <div class="container" id="grid">
+    <!-- 30 grid cells -->
+    <script>
+      for (let i = 0; i < 30; i++) {
+        document.write('<div class="cell"></div>');
+      }
+    </script>
+  </div>    
+
+  <div class="bg">  
+    <div class="keys">  
+      <div class="key">Q</div>  
+      <div class="key">W</div>  
+      <div class="key">E</div>  
+      <div class="key">R</div>  
+      <div class="key">T</div>  
+      <div class="key">Y</div>  
+      <div class="key">U</div>  
+      <div class="key">I</div>  
+      <div class="key">O</div>  
+      <div class="key">P</div>  
+    </div>  
+    <div class="keys">  
+      <div class="key">A</div>  
+      <div class="key">S</div>  
+      <div class="key">D</div>  
+      <div class="key">F</div>  
+      <div class="key">G</div>  
+      <div class="key">H</div>  
+      <div class="key">J</div>  
+      <div class="key">K</div>  
+      <div class="key">L</div>  
+    </div>  
+    <div class="keys">  
+      <div class="key">Z</div>  
+      <div class="key">X</div>  
+      <div class="key">C</div>  
+      <div class="key">V</div>  
+      <div class="key">B</div>  
+      <div class="key">N</div>  
+      <div class="key">M</div>  
+      <div class="key" id="del">DEL</div>  
+    </div>  
+    <div class="sub">  
+      <span id="submit">Submit Word</span>  
+    </div>  
+  </div>    
+
+  <script>
+    const gridCells = document.querySelectorAll('.cell');
+    const keys = document.querySelectorAll('.key');
+    const deleteKey = document.getElementById('del');
+    const submitBtn = document.getElementById('submit');
+
+    let currentIndex = 0;
+
+    // Function to handle key presses
+    keys.forEach(key => {
+      key.addEventListener('click', () => {
+        if (currentIndex < 30) {
+          gridCells[currentIndex].textContent = key.textContent;
+          currentIndex++;
+        }
+      });
+    });
+
+    // Delete function
+    deleteKey.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        gridCells[currentIndex].textContent = '';
+      }
+    });
+
+    // Submit function
+    submitBtn.addEventListener('click', () => {
+      let word = '';
+      for (let i = currentIndex - 5; i < currentIndex; i++) {
+        if (gridCells[i]) {
+          word += gridCells[i].textContent;
+        }
+      }
+      if (word.length === 5) {
+        alert('Submitted Word: ' + word);
+      } else {
+        alert('Enter a 5-letter word before submitting!');
+      }
+    });
+  </script>  
+</body>  
+</html>
