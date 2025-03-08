@@ -165,8 +165,8 @@
     }
 
     .product-grid div {
-      /* margin-left: 35px; */
-      /* position: relative; */
+      /* margin-left: 35px;
+      position: relative; */
     }
 
     .notes {
@@ -187,11 +187,11 @@
       border: 4px solid #eee;
       padding: 30px;
       margin: 30px;
-      z-index: 1;
-      /* transform: translateX(-50%); */
-      /* position: absolute;
-      top: 10px;
-      left: 50%; */
+      /* z-index: 1;
+      transform: translateY(20px);
+      opacity: ;
+      top: 0;
+      left: 0; */
     }
 
     .product-grid div img:hover {
@@ -274,13 +274,12 @@
       }
       
       /* About section */
-      .row {
-        display: flex;
-        flex-direction: column;
-      }
-      #about p {
-        margin: 10px 0 20px 0;
-      }
+      .product-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(1, 1fr);
+      gap: 20px;
+    }
     }
   </style>
 </head>
@@ -309,7 +308,7 @@
     <section id="home">
       <div>
         <h2>Welcome to Our Website</h2>
-        <p>Tired of browsing endless tabs? <b><i>Sheila</i></b> is here! Curated collections, unbeatable deals, and a seamless shopping experience. Discover what you've been missing. Shop <a href="#" style="color: green;">@sheila</a> today!</p>
+        <p>Tired of browsing endless tabs? <b><i>Sheila</i></b> is here! Curated collections, unbeatable deals, and a seamless shopping experience. Discover what you've been missing. green;">@sheila</a> today!</p>
       </div>
       <div id="wel-div">
         <img class="welcom-img" src="img/another.png" alt="Customer services">
@@ -319,18 +318,18 @@
     <section id="products">
       <h2>Product Category</h2>
       <div class="product-grid">
-        <div><img src="add/food.png" alt=""><div class="category">CAT</div><div class="notes"><span>Hello</span><span>Please</span></div></div>
-        <div><img src="add/food.png" alt=""><div class="category">CAT</div><div class="notes"><span>Hello</span><span>Please</span></div></div>
-        <div><img src="add/food.png" alt=""><div class="category">CAT</div><div class="notes"><span>Hello</span><span>Please</span></div></div>
-        <div><img src="add/food.png" alt=""><div class="category">CAT</div><div class="notes"><span>Hello</span><span>Please</span></div></div>
-        <div><img src="add/food.png" alt=""><div class="category">CAT</div><div class="notes"><span>Hello</span><span>Please</span></div></div>
-        <div><img src="add/food.png" alt=""><div class="category">CAT</div><div class="notes"><span>Hello</span><span>Please</span></div></div>
-        <div><img src="add/food.png" alt=""><div class="category">CAT</div><div class="notes"><span>Hello</span><span>Please</span></div></div>
-        <div><img src="add/food.png" alt=""><div class="category">CAT</div><div class="notes"><span>Hello</span><span>Please</span></div></div>
-        <div><img src="add/food.png" alt=""><div class="category">CAT</div><div class="notes"><span>Hello</span><span>Please</span></div></div>
-        <div><img src="add/food.png" alt=""><div class="category">CAT</div><div class="notes"><span>Hello</span><span>Please</span></div></div>
-        <div><img src="add/food.png" alt=""><div class="category">CAT</div><div class="notes"><span>Hello</span><span>Please</span></div></div>
-        <div><img src="add/food.png" alt=""><div class="category">CAT</div><div class="notes"><span>Hello</span><span>Please</span></div></div>
+        <div><img src="add/food.png" alt=""><div class="notes"><span>Hello</span><span>Please</span></div></div>
+        <div><img src="add/food.png" alt=""><div class="notes"><span>Hello</span><span>Please</span></div></div>
+        <div><img src="add/food.png" alt=""><div class="notes"><span>Hello</span><span>Please</span></div></div>
+        <div><img src="add/food.png" alt=""><div class="notes"><span>Hello</span><span>Please</span></div></div>
+        <div><img src="add/food.png" alt=""><div class="notes"><span>Hello</span><span>Please</span></div></div>
+        <div><img src="add/food.png" alt=""><div class="notes"><span>Hello</span><span>Please</span></div></div>
+        <div><img src="add/food.png" alt=""><div class="notes"><span>Hello</span><span>Please</span></div></div>
+        <div><img src="add/food.png" alt=""><div class="notes"><span>Hello</span><span>Please</span></div></div>
+        <div><img src="add/food.png" alt=""><div class="notes"><span>Hello</span><span>Please</span></div></div>
+        <div><img src="add/food.png" alt=""><div class="notes"><span>Hello</span><span>Please</span></div></div>
+        <div><img src="add/food.png" alt=""><div class="notes"><span>Hello</span><span>Please</span></div></div>
+        <div><img src="add/food.png" alt=""><div class="notes"><span>Hello</span><span>Please</span></div></div>
       </div>
     </section>
 
