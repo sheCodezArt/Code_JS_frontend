@@ -1,0 +1,278 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 3D Flipbook</title>
+  <style>
+body {
+  background: #f0f0f0;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.flipbook {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.page .front,
+.page .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: white;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.page .back {
+  transform: rotateY(180deg);
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+#page1:checked ~ #p1 {
+  transform: rotateY(-180deg);
+}
+
+#page2:checked ~ #p2 {
+  transform: rotateY(-180deg);
+}
+
+label {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background: #3498db;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+}
+  </style>
+</head>
+<body>
+  <div class="flipbook">
+    <input type="checkbox" id="page1" />
+    <input type="checkbox" id="page2" />
+    <input type="checkbox" id="page3" />
+    
+    <div class="page" id="cover">
+      <label for="page1" class="next">Open Book</label>
+    </div>
+    
+    <div class="page" id="p1">
+      <div class="front">
+        <h2>Page 1</h2>
+        <label for="page1" class="prev">Back</label>
+        <label for="page2" class="next">Next</label>
+      </div>
+      <div class="back">
+        <h2>Page 2</h2>
+        <label for="page2" class="prev">Back</label>
+        <label for="page3" class="next">Next</label>
+      </div>
+    </div>
+    
+    <div class="page" id="p2">
+      <div class="front">
+        <h2>Page 3</h2>
+        <label for="page3" class="prev">Back</label>
+        <label for="page1" class="next">Close Book</label>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3D CSS Flipbook</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .flipbook {
+      position: relative;
+      width: 400px;
+      height: 300px;
+      perspective: 1000px;
+    }
+
+    .page {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+    }
+
+    .page .front,
+    .page .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      background: white;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .page .back {
+      transform: rotateY(180deg);
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    #page1:checked ~ #p1 {
+      transform: rotateY(-180deg);
+    }
+
+    #page2:checked ~ #p2 {
+      transform: rotateY(-180deg);
+    }
+    label {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #3498db;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="flipbook">
+    <input type="checkbox" id="page1" />
+    <input type="checkbox" id="page2" />
+    <input type="checkbox" id="page3" />
+
+    <div class="page" id="cover">
+      <label for="page1" class="next">Open Book</label>
+    </div>
+
+    <div class="page" id="p1">
+      <div class="front">
+        <h2>Page 1</h2>
+        <label for="page1" class="prev">Back</label>
+        <label for="page2" class="next">Next</label>
+      </div>
+      <div class="back">
+        <h2>Page 2</h2>
+        <label for="page2" class="prev">Back</label>
+        <label for="page3" class="next">Next</label>
+      </div>
+    </div>
+
+    <div class="page" id="p2">
+      <div class="front">
+        <h2>Page 3</h2>
+        <label for="page3" class="prev">Back</label>
+        <label for="page1" class="next">Close Book</label>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Flipbook</title>
+    <style>
+        .flipbook {
+            width: 300px;
+            height: 400px;
+            position: relative;
+            perspective: 1000px;
+        }
+        .page {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: left;
+            transition: transform 1s;
+            backface-visibility: hidden;
+        }
+        .page:nth-child(1) {
+            background-color: #f00;
+            transform: rotateY(0deg);
+        }
+        .page:nth-child(2) {
+            background-color: #0f0;
+            transform: rotateY(90deg);
+        }
+        .page:nth-child(3) {
+            background-color: #00f;
+            transform: rotateY(180deg);
+        }
+        .page:nth-child(4) {
+            background-color: #ff0;
+            transform: rotateY(270deg);
+        }
+        .flipbook:hover .page:nth-child(1) {
+            transform: rotateY(-90deg);
+        }
+        .flipbook:hover .page:nth-child(2) {
+            transform: rotateY(0deg);
+        }
+        .flipbook:hover .page:nth-child(3) {
+            transform: rotateY(90deg);
+        }
+        .flipbook:hover .page:nth-child(4) {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="flipbook">
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+    </div>
+</body>
+</html>

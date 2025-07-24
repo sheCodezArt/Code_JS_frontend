@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 3D Cube Portal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    /*h1 {
+      margin-top: 100px;
+    }*/
+
+    .btn {
+      padding: 10px 20px;
+      background: #3498db;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .popup, .thankyou, .cube-page {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    
+    .cube-page h2 {
+      margin-bottom: 60px;
+    }
+    
+    .cube-page a {
+      margin-top: 55px;
+      color: #fff;
+      text-decoration: none;
+      background: #66c5ff;
+      border-radius: 9px;
+      padding: 13px 50px;
+    }
+
+    #popup:target, #thankyou:target, #cubes:target {
+      display: flex;
+    }
+
+    .popup a, .thankyou a {
+      margin: 10px;
+      padding: 10px 20px;
+      background: #2ecc71;
+      color: #fff;
+      width: 110px;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .cube {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spin 10s infinite linear;
+    }
+
+    .face {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: #21ff23;
+      border: 1px solid #ccc;
+      line-height: 100px;
+    }
+
+    .front  { transform: translateZ(50px); }
+    .back   { transform: rotateY(180deg) translateZ(50px); }
+    .right  { transform: rotateY(90deg) translateZ(50px); }
+    .left   { transform: rotateY(-90deg) translateZ(50px); }
+    .top    { transform: rotateX(90deg) translateZ(50px); }
+    .bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+    @keyframes spin {
+      from { transform: rotateX(0deg) rotateY(0deg); }
+      to { transform: rotateX(360deg) rotateY(360deg); }
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Welcome to the Portal</h1>
+  <a href="#popup" class="btn">Go to Animated Site</a>
+
+  <div id="popup" class="popup">
+    <p>You'll be led to a 3D animated site with a spinning cube. Continue?</p>
+    <a href="#cubes">OK</a>
+    <a href="#thankyou">Cancel</a>
+  </div>
+
+  <div id="thankyou" class="thankyou">
+    <h2>Thank you! You have chosen to stay here!</h2>
+    <a href="#">Close</a>
+  </div>
+
+  <div id="cubes" class="cube-page">
+    <h2>Welcome to the 3D World!</h2>
+    <div class="cube">
+      <div class="face front">Front</div>
+      <div class="face back">Back</div>
+      <div class="face right">Right</div>
+      <div class="face left">Left</div>
+      <div class="face top">Top</div>
+      <div class="face bottom">Bottom</div>
+    </div>
+    <a href="#">Back</a>
+  </div>
+</body>
+</html>

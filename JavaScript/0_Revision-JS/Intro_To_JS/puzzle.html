@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup & Quiz Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            width: 350px;
+            text-align: center;
+        }
+        input, button {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result.correct {
+            color: green;
+            font-weight: bold;
+        }
+        #result.wrong {
+            color: red;
+            font-weight: bold;
+        }
+        .hidden {
+            display: none;
+        }
+        #strength {
+            font-size: 0.9em;
+            margin-top: -5px;
+        }
+        .weak {
+            color: red;
+        }
+        .medium {
+            color: orange;
+        }
+        .strong {
+            color: green;
+        }
+        .show-password {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /*justify-content: flex-start;
+            gap: 2px;*/
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <h2>Sign Up to Play</h2>
+
+    <form id="signupForm">
+        <input type="text" id="username" placeholder="Username" required><br>
+        <input type="email" id="email" placeholder="Email" required><br>
+        
+        <input type="password" id="password" placeholder="Password" required><br>
+        
+        <div class="show-password">
+            <input type="checkbox" id="showPassword"> Show Password
+        </div>
+        
+        <div id="strength"></div>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2 id="welcomeMessage" class="hidden"></h2>
+
+    <div id="gameSection" class="hidden">
+        <p id="question"></p>
+        <input type="text" id="answerInput" placeholder="Your answer">
+        <button id="submitAnswer">Submit Answer</button>
+        <p id="yourAnswer"></p>
+        <p id="result"></p>
+        <p id="scoreDisplay">Score: 0</p>
+    </div>
+
+</div>
+
+<script>
+    const signupForm = document.getElementById('signupForm');
+    const welcomeMessage = document.getElementById('welcomeMessage');
+    const gameSection = document.getElementById('gameSection');
+    const question = document.getElementById('question');
+    const answerInput = document.getElementById('answerInput');
+    const submitAnswer = document.getElementById('submitAnswer');
+    const yourAnswer = document.getElementById('yourAnswer');
+    const result = document.getElementById('result');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const passwordInput = document.getElementById('password');
+    const strengthDisplay = document.getElementById('strength');
+    const showPassword = document.getElementById('showPassword');
+
+    let score = 0;
+    let currentQuestion = 0;
+
+    const quiz = [
+        { q: "What is 5 + 3?", a: "8" },
+        { q: "What color do you get by mixing blue and yellow?", a: "green" },
+        { q: "What is the capital of France?", a: "paris" },
+        { q: "What planet do we live on?", a: "earth" }
+    ];
+
+    signupForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = passwordInput.value.trim();
+
+        if (username === "" || email === "" || password === "") {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        if (checkPasswordStrength(password) === "weak") {
+            alert("Please choose a stronger password.");
+            return;
+        }
+
+        signupForm.classList.add('hidden');
+        welcomeMessage.textContent = `Welcome ${username}`;
+        welcomeMessage.classList.remove('hidden');
+
+        const ready = confirm("Are you ready to play a game?");
+        if (ready) {
+            gameSection.classList.remove('hidden');
+            loadQuestion();
+        }
+    });
+
+    showPassword.addEventListener('change', function() {
+        passwordInput.type = this.checked ? "text" : "password";
+    });
+
+    passwordInput.addEventListener('input', function() {
+        const strength = checkPasswordStrength(passwordInput.value);
+        strengthDisplay.textContent = `Strength: ${strength.toUpperCase()}`;
+        strengthDisplay.className = strength;
+    });
+
+    submitAnswer.addEventListener('click', function() {
+        const userAnswer = answerInput.value.trim().toLowerCase();
+        yourAnswer.textContent = `You answered: ${userAnswer}`;
+        
+        if (userAnswer === quiz[currentQuestion].a.toLowerCase()) {
+            result.textContent = "CORRECT";
+            result.classList.remove('wrong');
+            result.classList.add('correct');
+            score++;
+        } else {
+            result.textContent = "WRONG... 😂";
+            result.classList.remove('correct');
+            result.classList.add('wrong');
+        }
+
+        scoreDisplay.textContent = `Score: ${score}`;
+        answerInput.value = "";
+
+        currentQuestion++;
+
+        if (currentQuestion < quiz.length) {
+            setTimeout(loadQuestion, 1000);
+        } else {
+            setTimeout(() => {
+                question.textContent = "Game Over! Thanks for playing.";
+                answerInput.style.display = "none";
+                submitAnswer.style.display = "none";
+            }, 1000);
+        }
+    });
+
+    function loadQuestion() {
+        result.textContent = "";
+        yourAnswer.textContent = "";
+        question.textContent = quiz[currentQuestion].q;
+    }
+
+    function checkPasswordStrength(password) {
+        if (password.length < 6) return "weak";
+        if (/[A-Z]/.test(password) && /\d/.test(password) && password.length >= 8) return "strong";
+        return "medium";
+    }
+</script>
+
+</body>
+</html>

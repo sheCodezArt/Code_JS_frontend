@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guess the Word Game</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f2f2f2;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    #wordDisplay {
+      font-size: 32px;
+      letter-spacing: 10px;
+      margin: 20px 0;
+    }
+
+    #guessInput {
+      padding: 10px;
+      width: 60px;
+      text-align: center;
+      font-size: 18px;
+      margin: 10px;
+      border: 2px solid #333;
+      border-radius: 4px;
+    }
+
+    #guessBtn {
+      padding: 10px 20px;
+      background-color: #336699;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #guessBtn:hover {
+      background-color: #224466;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    #wrongLetters {
+      color: red;
+      font-weight: bold;
+    }
+
+    .info {
+      margin-top: 15px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Guess the Word!</h2>
+  <p id="wordDisplay"></p>
+
+  <input type="text" id="guessInput" maxlength="1" placeholder="Type...">
+  <button id="guessBtn" onclick="makeGuess()">Guess</button>
+
+  <p id="message"></p>
+  <p class="info">Wrong guesses: <span id="wrongLetters"></span></p>
+
+  <script>
+    const words = ["cat", "dog", "rain", "music", "flute", "pizza", "ocean", "robot", "sunset"];
+    const word = words[Math.floor(Math.random() * words.length)];
+    let display = Array(word.length).fill("_");
+    let wrongLetters = [];
+    let attempts = 6;
+
+    const wordDisplay = document.getElementById("wordDisplay");
+    const guessInput = document.getElementById("guessInput");
+    const message = document.getElementById("message");
+    const wrongLettersSpan = document.getElementById("wrongLetters");
+
+    wordDisplay.textContent = display.join(" ");
+
+    guessInput.focus();
+
+    function makeGuess() {
+      const guess = guessInput.value.toLowerCase();
+      guessInput.value = "";
+      guessInput.focus();
+
+      if (!guess || guess.length !== 1 || !/[a-z]/.test(guess)) {
+        message.textContent = "Please enter a single letter (a-z).";
+        return;
+      }
+
+      if (display.includes(guess) || wrongLetters.includes(guess)) {
+        message.textContent = "You've already guessed that letter!";
+        return;
+      }
+
+      let correct = false;
+      for (let i = 0; i < word.length; i++) {
+        if (word[i] === guess) {
+          display[i] = guess;
+          correct = true;
+        }
+      }
+
+      if (!correct) {
+        wrongLetters.push(guess);
+        attempts--;
+      }
+
+      wordDisplay.textContent = display.join(" ");
+      wrongLettersSpan.textContent = wrongLetters.join(", ");
+
+      if (!display.includes("_")) {
+        message.textContent = "🎉 Congratulations! You guessed the word!";
+        guessInput.disabled = true;
+      } else if (attempts === 0) {
+        message.textContent = `😢 Game over! The word was "${word}".`;
+        guessInput.disabled = true;
+      } else {
+        message.textContent = `Attempts left: ${attempts}`;
+      }
+    }
+  </script>
+
+</body>
+</html>

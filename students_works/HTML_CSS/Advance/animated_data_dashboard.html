@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS-Only Animated Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #1e1e2f;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .card {
+      background: #2e2e3e;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .progress-container {
+      margin-bottom: 20px;
+    }
+
+    .progress-label {
+      margin-bottom: 10px;
+    }
+
+    .progress-bar {
+      background: #444;
+      border-radius: 5px;
+      overflow: hidden;
+      height: 20px;
+    }
+
+    .progress {
+      height: 100%;
+      background: #4caf50;
+      width: 0;
+      animation: loadProgress 2s forwards;
+    }
+
+    @keyframes loadProgress {
+      from { width: 0; }
+      to { width: var(--progress); }
+    }
+
+    .pie-chart {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #4caf50 0% 40%,
+        #2196f3 40% 70%,
+        #ff9800 70% 100%
+      );
+      margin: 0 auto;
+      animation: rotatePie 10s linear infinite;
+    }
+
+    @keyframes rotatePie {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .cube {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      transform-style: preserve-3d;
+      animation: rotateCube 5s linear infinite;
+    }
+
+    .cube div {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid #fff;
+    }
+
+    .front  { transform: translateZ(50px); }
+    .back   { transform: rotateY(180deg) translateZ(50px); }
+    .right  { transform: rotateY(90deg) translateZ(50px); }
+    .left   { transform: rotateY(-90deg) translateZ(50px); }
+    .top    { transform: rotateX(90deg) translateZ(50px); }
+    .bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+    @keyframes rotateCube {
+      from { transform: rotateX(0deg) rotateY(0deg); }
+      to { transform: rotateX(360deg) rotateY(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS-Only Animated Dashboard</h1>
+  <div class="dashboard">
+    <div class="card">
+      <div class="progress-container">
+        <div class="progress-label">CPU Usage</div>
+        <div class="progress-bar">
+          <div class="progress" style="--progress: 70%;"></div>
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-label">Memory Usage</div>
+        <div class="progress-bar">
+          <div class="progress" style="--progress: 50%;"></div>
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-label">Disk Usage</div>
+        <div class="progress-bar">
+          <div class="progress" style="--progress: 85%;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="progress-label">Data Distribution</div>
+      <div class="pie-chart"></div>
+    </div>
+    <div class="card">
+      <div class="progress-label">3D Cube</div>
+      <div class="cube">
+        <div class="front"></div>
+        <div class="back"></div>
+        <div class="right"></div>
+        <div class="left"></div>
+        <div class="top"></div>
+        <div class="bottom"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

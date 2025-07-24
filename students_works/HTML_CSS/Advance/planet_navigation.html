@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Floating Planet Navigation</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(#000010, #000);
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .planet-nav {
+      display: flex;
+      gap: 60px;
+    }
+
+    .planet {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #2ecc71, #1e8449);
+      box-shadow: 0 0 20px #2ecc71, 0 0 40px #2ecc71;
+      animation: float 4s ease-in-out infinite alternate, pulse 2s infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .planet:nth-child(2) {
+      background: radial-gradient(circle at 30% 30%, #3498db, #1f618d);
+      box-shadow: 0 0 20px #3498db, 0 0 40px #3498db;
+      animation-delay: 1s;
+    }
+
+    .planet:nth-child(3) {
+      background: radial-gradient(circle at 30% 30%, #f1c40f, #b7950b);
+      box-shadow: 0 0 20px #f1c40f, 0 0 40px #f1c40f;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-20px); }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 20px rgba(255,255,255,0.5); }
+      50% { box-shadow: 0 0 30px rgba(255,255,255,1); }
+      100% { box-shadow: 0 0 20px rgba(255,255,255,0.5); }
+    }
+  </style>
+</head>
+<body>
+  <nav class="planet-nav">
+    <a href="#" class="planet">Home</a>
+    <a href="#" class="planet">About</a>
+    <a href="#" class="planet">Contact</a>
+  </nav>
+</body>
+</html>

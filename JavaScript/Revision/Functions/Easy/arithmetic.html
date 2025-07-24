@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Arithmetic</title>
+  
+  <style>
+    body {
+      background: #bbb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    p {
+      color: #ddd;
+      border: solid 1px #00bcee;
+      padding: 14px;
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      text-align: center;
+      border: none;
+      font-weight: bold;
+      margin: 10px 20px;
+      width: 120px;
+      outline: none;
+      background: #d4d4d4b3;
+    }
+    button {
+      background: #0eee;
+      border: none;
+      padding: 15px 9px;
+      width: 50px;
+      margin: 8px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p id="display">0</p>
+    
+    <input id="num1" type="text" placeholder="enter number here">
+    <input id="num2" type="text" placeholder="enter number here">
+    
+    <div class="btns">
+      <button onclick="add()" id="add">+</button>
+      <button onclick="sub()" id="sub">-</button>
+      <button onclick="mul()" id="mul">×</button>
+      <button onclick="div()" id="div">÷</button>
+    </div>
+  </div>
+  
+  
+  <script src="arithmetic.js"></script>
+</body>
+</html>

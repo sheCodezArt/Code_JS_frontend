@@ -1,0 +1,166 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text to Speech</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #container {
+      width: 50%;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #text {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h2>Text to Speech</h2>
+    <textarea id="text" placeholder="Enter text here"></textarea>
+    <button id="play">Play</button>
+    <button id="pause" disabled>Pause</button>
+  </div>
+
+  <script>
+    const textInput = document.getElementById('text');
+    const playButton = document.getElementById('play');
+    const pauseButton = document.getElementById('pause');
+    let utterance = null;
+
+    playButton.addEventListener('click', () => {
+      const text = textInput.value.trim();
+      if (text) {
+        utterance = new SpeechSynthesisUtterance(text);
+        utterance.onstart = () => {
+          playButton.disabled = true;
+          pauseButton.disabled = false;
+        };
+        utterance.onend = () => {
+          playButton.disabled = false;
+          pauseButton.disabled = true;
+        };
+        window.speechSynthesis.speak(utterance);
+      }
+    });
+
+    pauseButton.addEventListener('click', () => {
+      window.speechSynthesis.pause();
+      playButton.textContent = 'Resume';
+      playButton.disabled = false;
+      pauseButton.disabled = true;
+      playButton.addEventListener('click', resumeSpeech);
+    });
+
+    function resumeSpeech() {
+      window.speechSynthesis.resume();
+      playButton.textContent = 'Play';
+      playButton.disabled = true;
+      pauseButton.disabled = false;
+      playButton.removeEventListener('click', resumeSpeech);
+    }
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text to Speech</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f4f4f4;
+      text-align: center;
+    }
+    textarea {
+      width: 80%;
+      height: 150px;
+      font-size: 1rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      color: white;
+      background-color: #3498db;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🗣️ Text to Speech</h1>
+  <textarea id="text" placeholder="Type your text here..."></textarea><br>
+  <button id="speakBtn">🔊 Play</button>
+
+  <script>
+    const btn = document.getElementById("speakBtn");
+    const textInput = document.getElementById("text");
+    let utterance;
+    let isSpeaking = false;
+    btn.addEventListener("click", () => {
+      if (!isSpeaking) {
+        utterance = new SpeechSynthesisUtterance(textInput.value);
+        speechSynthesis.speak(utterance);
+        btn.textContent = "⏸️ Pause";
+        isSpeaking = true;
+
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.textContent = "🔊 Play";
+        };
+      } else {
+        speechSynthesis.pause();
+        btn.textContent = "▶️ Resume";
+        isSpeaking = false;
+      }
+    });
+
+    // Resume on second click
+    btn.addEventListener("click", () => {
+      if (speechSynthesis.paused) {
+        speechSynthesis.resume();
+        btn.textContent = "⏸️ Pause";
+        isSpeaking = true;
+      }
+    });
+  </script>
+
+</body>
+</html>

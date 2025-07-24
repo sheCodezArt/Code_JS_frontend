@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complex Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <caption>Employee Information</caption>
+    <thead>
+      <tr>
+        <th rowspan="2">Employee ID</th>
+        <th colspan="2">Name</th>
+        <th rowspan="2">Department</th>
+        <th rowspan="2">Job Title</th>
+        <th colspan="2">Contact Information</th>
+      </tr>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>101</td>
+        <td>John</td>
+        <td>Doe</td>
+        <td>Sales</td>
+        <td>Sales Manager</td>
+        <td>johndoe@example.com</td>
+        <td>123-456-7890</td>
+      </tr>
+      <tr>
+        <td>102</td>
+        <td>Jane</td>
+        <td>Smith</td>
+        <td>Marketing</td>
+        <td>Marketing Manager</td>
+        <td>janesmith@example.com</td>
+        <td>987-654-3210</td>
+      </tr>
+      <tr>
+        <td>103</td>
+        <td>Bob</td>
+        <td>Johnson</td>
+        <td>IT</td>
+        <td>Network Administrator</td>
+        <td>bobjohnson@example.com</td>
+        <td>555-123-4567</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="7">Total Employees: 3</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Cat Generator</title>
+  <style>
+    body { text-align: center; font-family: sans-serif; margin-top: 50px; }
+    img { max-width: 300px; border-radius: 10px; margin-top: 20px; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Random Cat Generator 🐱</h1>
+  <button id="catBtn">Show me a cat!</button>
+  <div>
+    <img id="catImg" src="" alt="Random cat will appear here">
+  </div>
+  <script>
+    document.getElementById('catBtn').onclick = async function() {
+      try {
+        const res = await fetch('https://api.thecatapi.com/v1/images/search');
+        const data = await res.json();
+        document.getElementById('catImg').src = data.url;
+      } catch (e) {
+        alert('Could not fetch cat image!');
+      }
+    };
+  </script>
+</body>
+</html>

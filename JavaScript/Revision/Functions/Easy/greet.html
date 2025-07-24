@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Greet</title>
+  
+  <style>
+    * {
+      margin: 10px;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0eded;
+    }
+    h3 {
+      font-size: 25px;
+      color: teal;
+      text-align: center;
+    }
+    p {
+      padding: 20px 15px;
+      border: 2px solid teal;
+      color: black;
+      width: 60%;
+      text-align: center;
+      color: #ccc;
+    }
+    input {
+      outline: teal;
+      border: none;
+      padding: 17px 14px;
+      font-weight: bold;
+      width: 60%;
+    }
+    button {
+      border: none;
+      padding: 20px 14px;
+      width: 150px;
+      border-radius: 7px;
+      color: #ffee;
+      background-color: teal;
+      box-shadow: 2px 3px 5px black;
+    }
+  </style>
+</head>
+<body>
+  <h3>What is your name, please?</h3>
+  <input type="text" id="name">
+  <button id="btn" onclick="accessInputValue()">Enter</button>
+  
+  <p id="display">Greeting displays here!</p>
+  
+  <button id="pop-up" onclick="promptPopUp()">Prompt Here</button>
+  
+  
+  <script src="greet.js"></script>
+</body>
+</html>

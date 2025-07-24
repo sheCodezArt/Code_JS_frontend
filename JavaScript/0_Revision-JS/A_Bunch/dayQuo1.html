@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quote Generator</title>
+  <style>
+    body {
+      background: #70e5ff;
+      /*height: 100vh;*/
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: Georgia;
+      color: #3b3939;
+    }
+
+    .cover {
+      background: #c6faff;
+      width: 96%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px 0;
+    }
+
+    #container {
+      background: #70e5ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 90%;
+      padding: 15px 0;
+    }
+
+    button {
+      border: none;
+      font-family: 'Courier New';
+      font-weight: bold;
+    }
+
+    #container button {
+      padding: 12px 8px;
+      width: 150px;
+      margin: 10px 0;
+      box-shadow: #000 2px 3px 7px;
+    }
+
+    #container button:first-child {
+      background: #ed0882;
+    }
+
+    #container button:nth-child(2) {
+      background: beige;
+    }
+
+    #container button:nth-child(3) {
+      background: #41008c;
+      color: #fff;
+    }
+
+    #container button:nth-child(4) {
+      background: #83e883;
+    }
+
+    #container button:nth-child(5) {
+      background: #d28824;
+    }
+
+    #container button:nth-child(6) {
+      background: #bda276;
+    }
+
+    .gen {
+      width: 140px;
+      background: linear-gradient(to right, #ff9cad, #fdb9b9);
+      box-shadow: #fdb9b8 1px 3px 5px;
+      padding: 12px 26px;
+      border-radius: 7px;
+      font-weight: bold;
+      color: #fff;
+      font-family: sans-serif;
+      letter-spacing: 1px;
+    }
+    .all-quotes {
+      display: flex;
+      flex-direction: column;
+      margin: 20px;
+      height: 270px;
+      width: 270px;
+      align-items: center;
+      justify-content: center;
+      /* background: #fff; */
+    }
+    .quote-text {
+      color: #939393;
+    }
+    #love {
+      background-image: url('../loveRose.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    #motivate {
+      background-image: url('../mov.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    #humor {
+      background-image: url('../.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    #his {
+      background-image: url('../his.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    #dark {
+      background-image: url('../dark.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    #sci {
+      background-image: url('../lab.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome To My Quote Generator</h1>
+  <div class="cover">
+    <div id="container">
+      <button>Love Quotes</button>
+      <button>Motivation</button>
+      <button>Dark Quotes</button>
+      <button>Science</button>
+      <button>Humor</button>
+      <button>Historical</button>
+    </div>
+    <div class="all-quotes" id="love">
+      <h3 id="lquote" class="quote-text">Quote goes here!</h3>
+      <button class="gen" id="gen0">Generate</button>
+    </div>
+    <div class="all-quotes" id="motivate">
+      <h3 id="mquote" class="quote-text">Quote goes here!</h3>
+      <button class="gen" id="gen1">Generate</button>
+    </div>
+    <div class="all-quotes" id="dark">
+      <h3 id="dquote" class="quote-text">Quote goes here!</h3>
+      <button class="gen" id="gen2">Generate</button>
+    </div>
+    <div class="all-quotes" id="sci">
+      <h3 id="squote" class="quote-text">Quote goes here!</h3>
+      <button class="gen" id="gen3">Generate</button>
+    </div>
+    <div class="all-quotes" id="humor">
+      <h3 id="hquote" class="quote-text">Quote goes here!</h3>
+      <button class="gen" id="gen4">Generate</button>
+    </div>
+    <div class="all-quotes" id="his">
+      <h3 id="hisquote" class="quote-text">Quote goes here!</h3>
+      <button class="gen" id="gen5">Generate</button>
+    </div>
+  </div>
+  <script>
+    
+// Hide all quote divs on page load
+/* window.onload = function() {
+  const quoteDivs = document.querySelectorAll('.all-quotes');
+  quoteDivs.forEach(div => div.style.display = 'none');
+};
+
+// Show only the clicked quote div
+const buttons = document.querySelectorAll('#container button');
+const quoteDivs = document.querySelectorAll('.all-quotes');
+buttons.forEach((btn, idx) => {
+  btn.onclick = function() {
+    quoteDivs.forEach(div => div.style.display = 'none');
+    quoteDivs[idx].style.display = 'flex';
+  };
+}); 
+
+// Hide all quote divs on page load
+window.onload = function() {
+  const quoteDivs = document.querySelectorAll('.all-quotes');
+  quoteDivs.forEach(div => div.style.display = 'none');
+};
+
+// Show only the clicked quote div
+const buttons = document.querySelectorAll('#container button');
+const quoteDivs = document.querySelectorAll('.all-quotes');
+const categories = ['love', 'motivation', 'dark', 'science', 'humor', 'history'];
+
+buttons.forEach((btn, idx) => {
+  btn.onclick = function() {
+    quoteDivs.forEach(div => div.style.display = 'none');
+    quoteDivs[idx].style.display = 'flex';
+  };
+});
+
+// Fetch random quote for each category
+const apiCategoryMap = {
+  love: 'love',
+  motivation: 'motivational',
+  dark: 'life', // Quotable doesn't have 'dark', so using 'life'
+  science: 'science',
+  humor: 'humor',
+  history: 'history'
+};
+
+quoteDivs.forEach((div, idx) => {
+  const genBtn = div.querySelector('.gen');
+  const quoteText = div.querySelector('h3');
+  genBtn.onclick = async function() {
+    const cat = apiCategoryMap[categories[idx]];
+    const url = `https://api.quotable.io/random?tags=${cat}`;
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      quoteText.textContent = `"${data.content}" — ${data.author}`;
+    } catch (e) {
+      quoteText.textContent = 'Oops! Could not fetch quote.';
+    }
+  };
+}); */
+
+// Hide all quote divs on page load
+window.onload = function() {
+  const quoteDivs = document.querySelectorAll('.all-quotes');
+  quoteDivs.forEach(div => div.style.display = 'none');
+};
+
+// Show only the clicked quote div
+const buttons = document.querySelectorAll('#container button');
+const quoteDivs = document.querySelectorAll('.all-quotes');
+buttons.forEach((btn, idx) => {
+  btn.onclick = function() {
+    quoteDivs.forEach(div => div.style.display = 'none');
+    quoteDivs[idx].style.display = 'flex';
+  };
+});
+
+// Use ZenQuotes API for random quotes
+quoteDivs.forEach((div) => {
+  const genBtn = div.querySelector('.gen');
+  const quoteText = div.querySelector('h3');
+  genBtn.onclick = async function() {
+    try {
+      const res = await fetch('https://zenquotes.io/api/random');
+      const data = await res.json();
+      quoteText.textContent = `"${data.q}" — ${data.a}`;
+    } catch (e) {
+      quoteText.textContent = 'Oops! Could not fetch quote.';
+    }
+  };
+});
+
+  </script>
+</body>
+</html>
+
+

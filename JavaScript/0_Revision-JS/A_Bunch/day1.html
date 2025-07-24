@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 1</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background: beige;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+    }
+    #login {
+      background: linear-gradient(120deg, #619eff, #7ee6fd, #50fda3, #d7faea);
+      border-radius: 10px;
+      box-shadow: #000 5px 6px 10px;
+      padding: 40px 25px;
+      margin: 10px;
+    }
+    #login h1 {
+      text-align: center;
+      color: #2f3030;
+    }
+    #login > form {
+      display: flex;
+      flex-direction: column;
+    }
+    #login > form label {
+      font-weight: bold;
+      color: #270027;
+      letter-spacing: 1px;
+      font-family: Georgia;
+      padding: 10px;
+    }
+    #login > form input {
+      padding: 11px 20px;
+      background: #ffffffd3;
+      outline: none;
+      border: none;
+      border-bottom: #5b5757 1px solid;
+    }
+    #login > form button {
+      background: green;
+      letter-spacing: 1.5px;
+      padding: 12px 20px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 20px;
+      font-family: Georgia;
+      border: none;
+      border-radius: 7px;
+    }
+    #hidden-msg {
+      display: none;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div id="login">
+      <h1>Login</h1>
+      <form id="login-form" action="#">
+        <label for="username" >Username</label>
+        <input type="text" name="username" id="username" placeholder="John Doe">
+        <b id="check-ur"></b>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="johndoe@gmail.com">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+        <p id="p-strgth"></p>
+        <button id="log-btn">Login</button>
+      </form>
+    </div>
+    <div id="hidden-msg">
+      <p>Welcome <b class="user">Guest</b></p>
+    </div>
+  </div>
+  
+  <script>
+    function collectInput() {
+      let form = document.getElementById("login-form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let username = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        
+        username = username.toLowerCase().trim();
+        if (username.length <= 5) {
+          const nameStrength = document.getElementById("check-ur");
+          nameStrength.innerHTML = "Username should be more than 5 characters!";
+          nameStrength.style.color = "red";
+          nameStrength.style.fontSize = "small";
+          // alert("Username too short");
+        }
+        function isEmailValid(anyEmail) {
+          let hasAt = false;
+          let hasDot = false;
+          
+          for (let i = 0; i < anyEmail.length; i++) {
+            if (anyEmail[i] === "@") {
+              hasAt = true;
+            }
+            if (anyEmail[i] === ".") {
+              hasDot = true
+            }
+          }
+          return hasAt && hasDot && anyEmail.indexOf("@") > anyEmail.indexOf(".");
+        }
+        const emailInput = document.getElementById("email");
+        if (!isEmailValid(email)) {
+          emailInput.style.borderColor = "red";
+        }
+        else {
+          emailInput.style.borderColor = "";
+        }
+        
+        function isPasswordStrong(pwd) {
+          let strgth = document.getElementById("p-strgth");
+          
+          const bulk = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+          
+          if (bulk.test(pwd)) {
+            strgth.innerHTML = "Strong password!";
+            strgth.style.color = "green";
+          }
+          else if (pwd.length < 8) {
+            strgth.innerHTML = "Medium password!";
+            strgth.style.color = "orange";
+          }
+          else {
+            strgth.innerHTML = "Weak password!";
+            strgth.style.color = "red";
+          }
+          
+          /* if (pwd.length < 8) {
+            strgth.innerHTML = "Weak password!";
+            strgth.style.color = "red";
+          }
+          for (let i = 0; i < pwd.length; i++) {
+            if (pwd[i] === pwd[i].toUpperCase()) {
+              strgth.innerHTML = "Weak password!";
+              strgth.style.color = "red";
+            }
+            if (pwd[i] === pwd[i].toLowerCase()) {
+              strgth.innerHTML = "Medium password!";
+              strgth.style.color = "orange";
+            }
+            if (isNaN(pwd[i])) {
+              strgth.innerHTML = "Medium password!";
+              strgth.style.color = "orange";
+            }
+          } */
+        }
+        
+        isPasswordStrong(password);
+      });
+    }
+    
+    collectInput();
+  </script>
+</body>
+</html>
+
