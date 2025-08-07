@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Change Heading</title>
+  <style>
+    body {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #ffe8b4d4;
+      box-shadow: inset 0px 5px 20px #faba00;
+      font-family: Georgia;
+    }
+    h1 {
+      text-align: center;
+      padding: 10px 10px;
+    }
+    p {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    button {
+      border: none;
+      background: #f5f5a4;
+      font-weight: bold;
+      color: #ddb002;
+      padding: 14px 34px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+      box-shadow: #000 2px 1px 8px;
+      transition: all 0.5s ease;
+    }
+    button:hover {
+      transform: translateY(-22px);
+      background: #ddb002;
+      color: #f5f5a4;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Article</h1>
+  <p>In an era dominated by digital media and technology-driven creative outlets, traditional art continues to thrive, captivating audiences and inspiring new generations of artists. One reason for its enduring appeal lies in its tactile nature, allowing artists to experiment with textures, colors, and forms in a way that digital art cannot replicate. The physicality of traditional art also fosters a deeper connection between the artist, the artwork, and the viewer, creating a sensory experience that is both intimate and immersive. From the delicate brushstrokes of watercolor paintings to the expressive gestures of sculptors, traditional art celebrates the human touch, imbuing each piece with a sense of history, craftsmanship, and emotional resonance.</p>
+  <p>Moreover, traditional art serves as a vital link to our cultural heritage, preserving the techniques, themes, and stories of bygone eras. By continuing to practice and innovate within traditional art forms, artists pay homage to their predecessors while also pushing the boundaries of what is possible. As a result, traditional art remains a dynamic and evolving force, influencing contemporary art practices and informing our understanding of the world around us. Whether through painting, sculpture, printmaking, or other mediums, traditional art's continued relevance is a testament to its power to inspire, educate, and connect us across cultures and time.</p>
+  <button id="btn">Change Title</button>
+  
+  <script>
+    const btn = document.getElementById("btn");
+    const title = document.querySelector("h1");
+    
+    btn.addEventListener('click', () => {
+      title.innerText = `The Enduring Legacy of Traditional Art`;
+    });
+  </script>
+</body>
+</html>
