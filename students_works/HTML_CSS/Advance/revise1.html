@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: Georgia;
+      line-height: 1.6;
+      background: #9a9a9a;
+    }
+
+    header {
+      background: #000;
+      color: #fff;
+      border-bottom: solid #ddd 0.5px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      text-transform: capitalize;
+      letter-spacing: 1.8px;
+      margin-right: 32px;
+    }
+
+    nav ul li a:hover {
+      color: #ff3939;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .logo i {
+      color: red;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    section h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+
+    .info {
+      text-align: center;
+    }
+
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .flip-card {
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .flip-card-front {
+      background: #fff;
+    }
+
+    .flip-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .flip-card-back {
+      background: #fe3434;
+      color: white;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .flip-card-back p {
+      text-align: center;
+    }
+
+    .works, .foot {
+      width: 100%;
+      height: 150px;
+      background: #eee;
+      margin: 10px 0;
+    }
+    
+    #contact {
+      padding: 0;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      background: #111;
+      color: #fff;
+      padding: 20px 20px;
+      border-top: 1px solid #fe3434;
+    }
+    
+    .footer-grid h4 {
+      margin-bottom: 12px;
+      font-size: 18px;
+      color: #fe3434;
+    }
+    
+    .footer-grid ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-grid ul li {
+      margin-bottom: 8px;
+    }
+    
+    .footer-grid ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    
+    .footer-grid ul li a:hover {
+      color: #fe3434;
+    }
+    
+    .footer-icons p {
+      font-size: 24px;
+    }
+    
+    .footer-info p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 600px) {
+      nav ul li a {
+        margin-right: 16px;
+        font-size: 14px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      section h3 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <nav>
+      <div class="logo">S<i>C</i></div>
+      <ul>
+        <li><a href="#">home</a></li>
+        <li><a href="#about">about</a></li>
+        <li><a href="#services">services</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <h3>Welcome to my portfolio</h3>
+      <div class="info">
+        <p>Aspiring fullstack developer and admirer of literature and lover of math!</p>
+      </div>
+    </section>
+
+    <section id="about">
+      <h3>About Me</h3>
+      <div class="card-grid">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="your-image1.jpg" alt="Card 1" />
+            </div>
+            <div class="flip-card-back">
+              <h2>Developer</h2>
+              <p>Frontend & Backend aspirant</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="your-image2.jpg" alt="Card 2" />
+            </div>
+            <div class="flip-card-back">
+              <h2>Reader & Writer</h2>
+              <p>Admire Poetry and prose</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="your-image3.jpg" alt="Card 3" />
+            </div>
+            <div class="flip-card-back">
+              <h2>Mathematician</h2>
+              <p>Solving logic & analytical puzzles</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="your-image4.jpg" alt="Card 4" />
+            </div>
+            <div class="flip-card-back">
+              <h2>Creative</h2>
+              <p>Critical and logical thinking</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h3>Services Offered</h3>
+      <div class="works"></div>
+      <div class="works"></div>
+      <div class="works"></div>
+      <div class="works"></div>
+    </section>
+
+    <section id="contact">
+      <h3>Contact</h3>
+      <footer class="footer-grid">
+        <div class="footer-nav">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+    
+        <div class="footer-services">
+          <h4>Services</h4>
+          <ul>
+            <li>Web Design</li>
+            <li>Frontend Dev</li>
+            <li>Backend Dev</li>
+            <li>UI/UX Design</li>
+          </ul>
+        </div>
+    
+        <div class="footer-icons">
+          <h4>Connect</h4>
+          <i class="fab fa-facebook"></i><br>
+          <i class="fab fa-whatsapp"></i><br>
+          <i class="fab fa-twitter"></i><br>
+          <i class="fab fa-github"></i><br>
+          <p></p>
+        </div>
+    
+        <div class="footer-info">
+          <h4>Info</h4>
+          <p>Developer: S<i>C</i></p>
+          <p>© 2025 | All Rights Reserved</p>
+        </div>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
