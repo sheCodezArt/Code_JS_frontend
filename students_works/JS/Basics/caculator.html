@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Odd or Even</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #e3e3e3, #c0c0c0);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    #container {
+      padding: 20px 40px;
+      text-align: center;
+    }
+
+    #start {
+      border: none;
+      background: #6C63FF;
+      padding: 14px 36px;
+      font-size: 18px;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    #result {
+      background: white;
+      border: solid 1px #0064b8;
+      padding: 40px 60px;
+      margin: 20px;
+    }
+
+    #start:hover {
+      background: #5548e2;
+    }
+
+    #pop-up {
+      display: none;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      margin-top: 30px;
+      padding: 30px;
+      text-align: center;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    #pop-up p {
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .btns {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .choose {
+      padding: 10px 20px;
+      width: 100px;
+      border: none;
+      background: #00b894;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .choose:hover {
+      background: #019172;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome, User</h1>
+
+  <div id="container">
+    <div id="result"></div>
+    <button onclick="displayPopUp()" id="start">Start</button>
+  </div>
+
+  <div id="pop-up">
+    <p>Would you like to input a number or go with a random number?</p>
+    <div class="btns">
+      <button onclick="random()" class="choose">Random</button>
+      <button class="choose">Input</button>
+    </div>
+  </div>
+
+  <script>
+    const result = document.getElementById('result');
+    const popUp = document.getElementById('pop-up');
+    let visible = false;
+
+    function displayPopUp() {
+      visible = !visible;
+      popUp.style.display = visible ? 'block' : 'none';
+    }
+    
+    function random() {
+      let randomNum = Math.floor(Math.random() * 100) + 1;
+      
+      if (randomNum % 2 === 0) {
+        result.innerHTML = `EVEN ${randomNum}`;
+      }
+      else {
+        result.innerHTML = `ODD ${randomNum}`;
+      }
+    }
+    
+    function input() {
+      let userInput = prompt("Enter a valid numeral: ");
+      userInput = Number(userInput);
+      let i = 3;
+      
+      while (isNaN(userInput)) {
+        alert(`You have ${i} more times to try!`);
+        alert("All chances exhausted!");
+          return;
+        }
+      }
+      if (userInput % 2 === 0) {
+        result.innerHTML = `EVEN`;
+      }
+      else {
+        result.innerHTML = `ODD`;
+      }
+    }
+  </script>
+</body>
+</html>

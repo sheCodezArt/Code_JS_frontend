@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Odd or Even</title>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #ddd;
+    }
+    h1 {
+      text-align: center;
+    }
+    #container {
+      padding: 20px 45px;
+    }
+    #start {
+      border: none;
+      background: #fbff1e;
+      padding: 15px 40px;
+      font: bold 22px Georgia;
+    }
+    #pop-up{
+      background: #fff;
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 16px 28px;
+      padding: 30px;
+    }
+    #pop-up p {
+      margin: 20px;
+      font-weight: bold;
+    }
+    .choose {
+      background: green;
+      border: none;
+      box-shadow: #000 1px 3px 11px;
+      padding: 10px 18px;
+      border-radius: 20px;
+      margin: 10px;
+      font-weight: bold;
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome User</h1>
+  <div id="container">
+    <div id="result"></div>
+    <button onclick="displayPopUp()" id="start">Start</button>
+  </div>
+  <div id="pop-up">
+    <p>Would you like to input a number or go with random number?</p>
+    <div class="btns">
+      <button class="choose">Random</button>
+      <button class="choose">Input</button>
+    </div>
+  </div>
+  
+  
+  
+  <script>
+    const popUp = document.getElementById('pop-up');
+    const show = document.getElementById('start');
+    
+    function displayPopUp() {
+      let count = 0;
+      if (count % 2 == 0) {
+        popUp.style.display = "flex";
+      }
+      else {
+        popUp.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
