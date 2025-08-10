@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Replace X</title>
+  <style>
+    body { 
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      font-family:Georgia;
+    }
+    button {
+      border:solid 1px #fc8bfc;
+      background:#630063;
+      padding:18px 40px;
+      color:#fff;
+      margin-top:70px;
+      font-size:18px;
+      font-weight:bold;
+      font-family:Georgia;
+    }
+    .home {
+      max-width:720px;.
+      text-align:left;
+    }
+  </style>
+</head>
+<body>
+  <div id="home" class="home">
+    The sun shines brightly in the sky during the summer months. The warmth of the sun on the skin is the perfect feeling. People enjoy the outdoors in the summer, playing in the parks, swimming in the pools, and relaxing on the beaches. The smell of the BBQ wafts through the air, making the mouth water. The long days of the summer allow for the extra time to enjoy the sunshine. The summer is the season of the freedom, the adventure, and the relaxation. The sunsets are the breathtaking, the stars shine the brightly, and the nights are the warm in the summer evenings always.
+  </div>
+  <button id="change" onclick="replaceX()">Change</button>
+
+  <script>
+    function splitSentence(string) {
+      let word = '';
+      const arrOfTokens = [];
+
+      for (let i = 0; i < string.length; i++) {
+        const char = string[i];
+        
+        if (char === '.' || char === ',' || char === '?' || char === '!' || char === ';' || char === ':') {
+          if (word.length > 0) {
+            arrOfTokens.push(word);
+            word = '';
+          }
+          arrOfTokens.push(char);
+        }
+        else if (char === ' ' || char === '\n' || char === '\t') {
+          if (word.length > 0) {
+            arrOfTokens.push(word);
+            word = '';
+          }
+          arrOfTokens.push(char);
+        }
+        else {
+          word += char;
+        }
+      }
+
+      if (word.length > 0) arrOfTokens.push(word);
+      return arrOfTokens;
+    }
+
+    function replaceX() {
+      const div = document.getElementById('home');
+      const original = div.textContent;
+      const tokens = splitSentence(original);
+
+      const userInput = prompt('Enter another Word to replace every occurrence of "the": ');
+      if (userInput === null) return;
+
+      for (let i = 0; i < tokens.length; i++) {
+        const tok = tokens[i];
+
+        if (typeof tok === 'string' && /^[A-Za-z]+$/.test(tok)) {
+          if (tok.toLowerCase() === 'the') {
+            if (tok === tok.toUpperCase()) {
+              tokens[i] = userInput.charAt(0).toUpperCase() + userInput.slice(1);
+            } else {
+              tokens[i] = userInput;
+            }
+          }
+        }
+      }
+      
+      div.textContent = tokens.join('');
+    }
+  </script>
+</body>
+</html>
