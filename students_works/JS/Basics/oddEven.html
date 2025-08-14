@@ -1,90 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Odd or Even</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #121212;
+      color: #e0e0e0;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      background: #ddd;
     }
+    
+    #toggle {
+      background: #151313;
+      box-shadow: 1px 2px 10px #979797;
+      border: none;
+      padding: 12px 30px;
+      margin: 28px;
+      font-size: 22px;
+      color: #cfcfcf;
+      border-radius: 8px;
+      min-width: 200px;
+      transition: all 0.4s ease;
+    }
+    
+    #toggle:hover {
+      transform: scale(1.1);
+      background: #262626;
+      -webkit-box-shadow: 2px 3px 10px rgba(150,150,150,0.31);
+      -moz-box-shadow: 2px 3px 10px rgba(150,150,150,0.31);
+      box-shadow: 2px 3px 10px rgba(150,150,150,0.31);
+    }
+
     h1 {
+      margin-bottom: 20px;
+      color: #e0e0e0;
+    }
+
+    #container {
+      padding: 20px 40px;
       text-align: center;
     }
-    #container {
-      padding: 20px 45px;
-    }
+
     #start {
       border: none;
-      background: #fbff1e;
-      padding: 15px 40px;
-      font: bold 22px Georgia;
+      background: #6C63FF;
+      padding: 14px 36px;
+      font-size: 18px;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      box-shadow: 0 0 8px #6C63FFaa;
     }
-    #pop-up{
-      background: #fff;
-      border-radius: 25px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      margin: 16px 28px;
-      padding: 30px;
-    }
-    #pop-up p {
+    
+    #result {
+      background: #1e1e1e;
+      border: solid 1px #6C63FF;
+      padding: 40px 60px;
       margin: 20px;
-      font-weight: bold;
+      color: #cfcfcf;
+      border-radius: 8px;
+      min-width: 200px;
+    }
+
+    #start:hover {
+      background: #5548e2;
+      box-shadow: 0 0 12px #5548e2cc;
+    }
+
+    #pop-up {
+      display: none;
+      background: #1e1e1e;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
+      margin-top: 30px;
+      padding: 30px;
+      text-align: center;
+      color: #ddd;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    #pop-up p {
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .btns {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
     }
     .choose {
-      background: green;
-      border: none;
-      box-shadow: #000 1px 3px 11px;
-      padding: 10px 18px;
-      border-radius: 20px;
-      margin: 10px;
-      font-weight: bold;
+      padding: 10px 20px;
       width: 100px;
+      border: none;
+      background: #00b894;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      box-shadow: 0 0 8px #00b894aa;
+    }
+    .choose:hover {
+      background: #019172;
+      box-shadow: 0 0 12px #019172cc;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Welcome User</h1>
+  <button onclick="switchMode()" id="toggle">Light</button>
+  <h1>Welcome, User</h1>
+
   <div id="container">
     <div id="result"></div>
     <button onclick="displayPopUp()" id="start">Start</button>
   </div>
+
   <div id="pop-up">
-    <p>Would you like to input a number or go with random number?</p>
+    <p>Would you like to input a number or go with a random number?</p>
     <div class="btns">
-      <button class="choose">Random</button>
-      <button class="choose">Input</button>
+      <button onclick="random()" class="choose">Random</button>
+      <button onclick="input()" class="choose">Input</button>
     </div>
   </div>
-  
-  
-  
+
   <script>
+    const result = document.getElementById('result');
     const popUp = document.getElementById('pop-up');
-    const show = document.getElementById('start');
     
-    function displayPopUp() {
-      let count = 0;
-      if (count % 2 == 0) {
-        popUp.style.display = "flex";
+    const toggle = document.getElementById("toggle");
+    const h1Ele = document.getElementsByTagName('h1');
+    let x = 0;
+    
+    function switchMode() {
+      if (x % 2 === 0) {
+        toggle.innerHTML = `Dark`;
+        toggle.style.background = "#cecece";
+        toggle.style.color = "#000";
+        document.body.style.background = "#e3e3e3";
+        for (let h1 of h1Ele) h1.style.color = "#000";
+        document.getElementById('start').style.background = "#6C63FF";
+        result.style.background = "white";
+        result.style.border = "1px solid #0064b8";
+        popUp.style.background = "#e7e7e7";
+        popUp.style.color = "#000";
       }
       else {
-        popUp.style.display = "none";
+        toggle.innerHTML = `Light`;
+        toggle.style.background = "#151313";
+        toggle.style.color = "#cfcfcf";
+        document.body.style.background = "#121212";
+        document.body.style.color = "white";
+        for (let h1 of h1Ele) h1.style.color = "#fff";
+        document.getElementById('start').style.background = "#6C63FF";
+        result.style.background = "black";
+        result.style.border = "1px solid #0064b8";
+        popUp.style.background = "#1e1e1e";
+        popUp.style.color = "#ddd";
+      }
+      x++;
+    }
+    
+    let visible = false;
+
+    function displayPopUp() {
+      visible = !visible;
+      popUp.style.display = visible ? 'block': 'none';
+      
+      result.innerHTML = "";
+    }
+
+    function random() {
+      let randomNum = Math.floor(Math.random() * 100) + 1;
+      
+      if (randomNum % 2 === 0) {
+        result.innerHTML = `EVEN ${randomNum}`;
+      }
+      else {
+        result.innerHTML = `ODD ${randomNum}`;
       }
     }
+    
+    /*function input() {
+      let userInput = Number(prompt("Enter a valid numeral: "));
+      let i = 3;
+      
+      while (isNaN(userInput)) {
+        i--;
+        if (i === 0) {
+          alert("All tries exhausted!");
+          return;
+        }
+        alert(`Invalid numeral! You have ${i} ${i === 1 ? "try" : "tries"} left.`);
+        userInput = Number(prompt("Enter a valid numeral: "));
+      }
+      if (userInput % 2 === 0) {
+          result.innerHTML = `EVEN ${userInput}`;
+       }
+      else {
+        result.innerHTML = `ODD ${userInput}`;
+      }
+    } */
+    
+    
+    function input() {
+      let userInput = prompt("Enter a valid numeral: ");
+      let i = 2;
+      
+      let bigMap = new Map();
+      for (let j = 1; j <= 26; j++) {
+        bigMap.set(String.fromCharCode(96 + j), j);
+      }
+      
+      let sum = 0;
+      while (isNaN(Number(userInput))) {
+        i--;
+        if (i === 0) {
+          userInput = userInput.toLowerCase();
+          sum = 0;
+          for (let char of userInput) {
+            if (bigMap.has(char)) {
+              sum += bigMap.get(char);
+            }
+            else {
+              alert("A character in your string is not an alphabet!");
+              return;
+            }
+          }
+          userInput = sum;
+          break;
+        }
+        alert(`Invalid numeral! Alphabets will be converted on last try if inputed. You have ${i} more ${i === 1? "time": "times"} to try!`);
+        userInput = prompt("Enter a valid numeral: ");
+      }
+      
+      userInput = Number(userInput);
+      if (userInput % 2 === 0) {
+        result.innerHTML = `EVEN ${userInput}`;
+      }
+      else {
+        result.innerHTML = `ODD ${userInput}`;
+      }
+    }
+
   </script>
 </body>
 </html>

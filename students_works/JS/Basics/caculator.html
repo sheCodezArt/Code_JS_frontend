@@ -2,156 +2,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Odd or Even</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
     }
-
     body {
-      background: linear-gradient(135deg, #e3e3e3, #c0c0c0);
-      height: 100vh;
+      background: linear-gradient(135deg, #0a0f60, #2b2e99);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
     }
 
     h1 {
       margin-bottom: 20px;
-      color: #333;
+      font-size: 2rem;
+      text-shadow: 2px 2px 4px #000;
     }
 
-    #container {
-      padding: 20px 40px;
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    input, #result {
+      width: 80px;
+      outline: none;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid #fff;
+      border-radius: 10px;
+      font-size: 2rem;
+      font-weight: bold;
       text-align: center;
+      color: #fff;
     }
 
-    #start {
-      border: none;
-      background: #6C63FF;
+    input::placeholder {
+      color: #ccc;
+    }
+
+    p {
+      align-self: center;
+      font-size: 2.5rem;
+    }
+
+    #btn {
+      margin-top: 20px;
       padding: 14px 36px;
-      font-size: 18px;
-      color: #fff;
+      background: #21f944;
+      color: #000;
+      font-weight: bold;
+      border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    
-    #result {
-      background: white;
-      border: solid 1px #0064b8;
-      padding: 40px 60px;
-      margin: 20px;
+      transition: background 0.3s;
     }
 
-    #start:hover {
-      background: #5548e2;
+    #btn:hover {
+      background: #18c738;
     }
 
-    #pop-up {
-      display: none;
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      margin-top: 30px;
-      padding: 30px;
-      text-align: center;
-      animation: fadeIn 0.3s ease-in-out;
-    }
+    @media screen and (max-width: 500px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
 
-    #pop-up p {
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .btns {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .choose {
-      padding: 10px 20px;
-      width: 100px;
-      border: none;
-      background: #00b894;
-      color: white;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .choose:hover {
-      background: #019172;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+      input, #result {
+        width: 100px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Welcome, User</h1>
-
-  <div id="container">
+  <h1>Simple Calculator</h1>
+  <div class="container">
+    <input type="text" id="first-value" placeholder="1st">
+    <input type="text" id="operator" placeholder="+">
+    <input type="text" id="second-value" placeholder="2nd">
+    
+    <p>=</p>
+    
     <div id="result"></div>
-    <button onclick="displayPopUp()" id="start">Start</button>
   </div>
-
-  <div id="pop-up">
-    <p>Would you like to input a number or go with a random number?</p>
-    <div class="btns">
-      <button onclick="random()" class="choose">Random</button>
-      <button class="choose">Input</button>
-    </div>
-  </div>
-
+  <button id="btn" onclick="checkValues()">SOLVE</button>
+  
+  
+  
   <script>
-    const result = document.getElementById('result');
-    const popUp = document.getElementById('pop-up');
-    let visible = false;
-
-    function displayPopUp() {
-      visible = !visible;
-      popUp.style.display = visible ? 'block' : 'none';
+    
+    
+    function add(a, b) {
+      return a+b;
+    }
+    function sub(a, b) {
+      return a-b;
+    }
+    function div(a, b) {
+      return a/b;
+    }
+    function mul(a, b) {
+      return a*b;
     }
     
-    function random() {
-      let randomNum = Math.floor(Math.random() * 100) + 1;
+    function checkValues() {
+      const operand1 = Number(document.getElementById("first-value").value);
+      const operand2 = Number(document.getElementById("second-value").value);
+      const operator = document.getElementById("operator").value;
+      const result = document.getElementById("result");
       
-      if (randomNum % 2 === 0) {
-        result.innerHTML = `EVEN ${randomNum}`;
+      if (operator === "+") {
+        result.innerHTML = `${add(operand1, operand2)}`;
+      }
+      else if (operator === "-") {
+        result.innerHTML = `${sub(operand1, operand2)}`;
+      }
+      else if (operator === "/") {
+        result.innerHTML = `${div(operand1, operand2)}`;
+      }
+      else if (operator === "*") {
+        result.innerHTML = `${mul(operand1, operand2)}`;
       }
       else {
-        result.innerHTML = `ODD ${randomNum}`;
+        alert("Invalid Value")
       }
-    }
-    
-    function input() {
-      let userInput = prompt("Enter a valid numeral: ");
-      userInput = Number(userInput);
-      let i = 3;
-      
-      while (isNaN(userInput)) {
-        alert(`You have ${i} more times to try!`);
-        alert("All chances exhausted!");
-          return;
-        }
-      }
-      if (userInput % 2 === 0) {
-        result.innerHTML = `EVEN`;
-      }
-      else {
-        result.innerHTML = `ODD`;
-      }
+      result.style.textAlign = "center";
     }
   </script>
 </body>
