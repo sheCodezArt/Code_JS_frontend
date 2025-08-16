@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background: #000;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      color: #fff;
+    }
+    label {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 28px;
+    }
+    label input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .ball {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transition: 0.4s;
+      background: #ddd;
+      border-radius: 20px;
+    }
+    .ball:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  .toggle:checked +.ball {
+    background-color: #054eea;
+  }
+  .toggle:checked +.ball:before {
+    transform: translateX(22px);
+  }
+    #calc {
+      background: #003b94;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      margin: 12px 32px;
+      border-radius: 11px;
+      box-shadow: 2px 3px 10px #2e5efe;
+    }
+    #body div {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+    }
+    #body div button {
+      background: transparent;
+      /*box-shadow: 1px 1px 10px #fff;*/
+      padding: 16px;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      font-size: 20px;
+      text-shadow: 1px 1px 8px #000;
+    }
+    #body div button:hover {
+      background: #72a9fe9d;
+    }
+    #display input {
+      outline: none;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      font-size: ;
+      background: transparent;
+      text-align: left;
+      padding: 24px 17px;
+      margin: 15px 10px;
+    }
+    #eq-sign {
+      transform: translateY(40px);
+    }
+  </style>
+</head>
+<body>
+  <label for="toggle">
+    <input type="checkbox" id="toggle" class="toggle">
+    <span class="ball"></span>
+  </label>
+  <h1>Upgraded Calculator</h1>
+  <div id="calc">
+    <div id="display"><input readonly type="text"></div>
+    <div id="body">
+      <div>
+        <button>C</button>
+        <button>÷</button>
+        <button>×</button>
+        <button>&#8998;</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>-</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>+</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button id="eq-sign">=</button>
+        <button>%</button>
+        <button>0</button>
+        <button>.</button>
+        <button></button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -4,71 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Calculator</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    body {
-      background: #000;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      height: 100vh;
-      color: #fff;
-    }
-    #calc {
-      background: #003b94;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 32px;
-      box-shadow: 2px 3px 10px #ddd;
-    }
-    #body {
-      display: ;
-      flex-direction: ;
-      align-items: center;
-      justify-content: center;
-    }
-  </style>
+  <title>Document</title>
+  <style>.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+  }.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 28px;
+  }.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  input:checked +.slider {
+    background-color: #4caf50;
+  }
+  input:checked +.slider:before {
+    transform: translateX(22px);
+  }
+</style>
 </head>
 <body>
-  <h1>Upgraded Calculator</h1>
-  <div id="calc">
-    <div id="display"><input type="text"></div>
-    <div id="body">
-      <div>
-        <button>C</button>
-        <button>7</button>
-        <button>4</button>
-        <button>1</button>
-        <button>%</button>
-      </div>
-      <div>
-        <button>÷</button>
-        <button>8</button>
-        <button>5</button>
-        <button>2</button>
-        <button>0</button>
-      </div>
-      <div>
-        <button>×</button>
-        <button>9</button>
-        <button>6</button>
-        <button>3</button>
-        <button>.</button>
-      </div>
-      <div>
-        <button>&#8998;</button>
-        <button>-</button>
-        <button>+</button>
-        <button>=</button>
-      </div>
-    </div>
-  </div>
+<label class="switch">
+  <input type="checkbox" />
+  <span class="slider round"></span>
+</label>
 </body>
 </html>
