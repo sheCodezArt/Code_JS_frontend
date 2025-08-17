@@ -17,7 +17,8 @@
       justify-content: center;
       flex-direction: column;
       height: 100vh;
-      color: #fff;
+      color: #00ff00;
+      font-family: monospace;
     }
     label {
       position: relative;
@@ -53,21 +54,21 @@
     transition: 0.4s;
   }
   .toggle:checked +.ball {
-    background-color: #054eea;
+    background-color: #00ff00;
   }
   .toggle:checked +.ball:before {
     transform: translateX(22px);
   }
     #calc {
-      background: #003b94;
+      background: #000;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 20px;
-      margin: 12px 32px;
+      margin: 12px 50px;
       border-radius: 11px;
-      box-shadow: 2px 3px 10px #2e5efe;
+      box-shadow: 2px 3px 10px #00ff00;
     }
     #body div {
       display: grid;
@@ -79,29 +80,30 @@
       background: transparent;
       /*box-shadow: 1px 1px 10px #fff;*/
       padding: 16px;
-      color: #fff;
+      color: #00ff00;
       font-weight: bold;
       border: none;
       font-size: 20px;
       text-shadow: 1px 1px 8px #000;
     }
     #body div button:hover {
-      background: #72a9fe9d;
+      background: #82fe82;
     }
     #display input {
       outline: none;
-      color: #fff;
+      color: #00ff00;
       border: none;
       font-weight: bold;
-      font-size: ;
+      font-size: 20px;
       background: transparent;
-      text-align: left;
+      text-align: right;
       padding: 24px 17px;
       margin: 15px 10px;
     }
     #eq-sign {
       transform: translateY(40px);
     }
+    
   </style>
 </head>
 <body>
@@ -111,31 +113,97 @@
   </label>
   <h1>Upgraded Calculator</h1>
   <div id="calc">
-    <div id="display"><input readonly type="text"></div>
+    <div id="display"><input readonly id="d-input" type="text"></div>
     <div id="body">
       <div>
-        <button>C</button>
-        <button>÷</button>
-        <button>×</button>
-        <button>&#8998;</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>-</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>+</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button id="eq-sign">=</button>
-        <button>%</button>
-        <button>0</button>
-        <button>.</button>
-        <button></button>
+        <button onclick="removeChar()">C</button>
+        <button onclick="show('÷')">÷</button>
+        <button onclick="show('×')">×</button>
+        <button onclick="del()">&#8998;</button>
+        <button onclick="show(7)">7</button>
+        <button onclick="show(8)">8</button>
+        <button onclick="show(9)">9</button>
+        <button onclick="show('-')">-</button>
+        <button onclick="show(4)">4</button>
+        <button onclick="show(5)">5</button>
+        <button onclick="show(6)">6</button>
+        <button onclick="show('+')">+</button>
+        <button onclick="show(1)">1</button>
+        <button onclick="show(2)">2</button>
+        <button onclick="show(3)">3</button>
+        <button onclick="show('=')" id="eq-sign">=</button>
+        <button onclick="show('%')">%</button>
+        <button onclick="show(0)">0</button>
+        <button onclick="show('.')">.</button>
+        <button style="display: none;"></button>
       </div>
     </div>
   </div>
+  
+  
+  <script>
+    
+    const display = document.querySelector("#display input");
+    
+    function show(x) {
+      if (x === '=') {
+        try {
+          let result = calculateExpression(display.value);
+          display.value = result;
+        } catch {
+          alert("Invalid Expression!");
+          display.value = "";
+        }
+      } else {
+        display.value += x;
+      }
+    }
+    
+    function calculateExpression(expr) {
+      let numbers = [];
+      let operators = [];
+      let currentNum = '';
+      
+      for (let char of expr) {
+        if ('+-×÷%'.includes(char)) {
+          numbers.push(parseFloat(currentNum));
+          operators.push(char);
+          currentNum = '';
+        } else {
+          currentNum += char;
+        }
+      }
+      numbers.push(parseFloat(currentNum));
+    
+      const add = (a, b) => a + b;
+      const sub = (a, b) => a - b;
+      const mul = (a, b) => a * b;
+      const div = (a, b) => a / b;
+      const mod = (a, b) => a % b;
+    
+      let result = numbers[0];
+      for (let i = 0; i < operators.length; i++) {
+        let op = operators[i];
+        let num = numbers[i+1];
+        if (op === '+') result = add(result, num);
+        else if (op === '-') result = sub(result, num);
+        else if (op === '×') result = mul(result, num);
+        else if (op === '÷') result = div(result, num);
+        else if (op === '%') result = mod(result, num);
+      }
+      return result;
+    }
+    
+    function removeChar() {
+      // Clear the entire display
+      display.value = "";
+    }
+    
+    function del() {
+      // Remove the last character only
+      display.value = display.value.slice(0, -1);
+    }
+
+  </script>
 </body>
 </html>
