@@ -4,46 +4,127 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <style>.switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 28px;
-  }.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 28px;
-  }.slider:before {
-    position: absolute;
-    content: "";
-    height: 22px;
-    width: 22px;
-    left: 3px;
-    bottom: 3px;
-    background-color: white;
-    border-radius: 50%;
-    transition: 0.4s;
-  }
-  input:checked +.slider {
-    background-color: #4caf50;
-  }
-  input:checked +.slider:before {
-    transform: translateX(22px);
-  }
-</style>
+  <title>Timed Quiz</title>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(90deg, #82fdc9bd, #82fdefdb);
+    }
+    h1 {
+      color: #fff;
+      text-shadow: #000 1px 2px 7px;
+      text-align: center;
+    }
+    #cover {
+      background: #3d64fe;
+      color: #fff;
+      box-shadow: 2px 2px 6px #000;
+      border-radius: 18px;
+      padding: 20px 26px;
+    }
+    .timer {
+      font-size: 20px;
+      text-shadow: #ddd 1px 1px 5px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-top: 20px;
+    }
+    #bf {
+      display: flex;
+      justify-content: space-between;
+    }
+    #bf a {
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 22px;
+      background: #fff;
+      border-radius: 50%;
+      text-align: center;
+      width: 40px;
+      height: 40px;
+      transition: all ease 0.3s;
+    }
+    #bf a:hover {
+      background: #000;
+      color: #fff;
+    }
+    #continue {
+      text-transform: uppercase;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      padding: 15px 34px;
+      background: #f89dfe;
+      box-shadow: 1px 1px 5px #848484;
+      margin-top: 20px;
+    }
+    #continue:hover {
+      background: #dd70ff;
+    }
+  </style>
 </head>
 <body>
-<label class="switch">
-  <input type="checkbox" />
-  <span class="slider round"></span>
-</label>
+  <h1>Timed Quiz</h1>
+  <div id="cover">
+    <h4 id="question"> <b id="ques-no">1,</b> Where in Africa is Morocco located?</h4>
+    <p class="options"> <b> <input type="radio"> A.</b> North Africa</p>
+    <p class="options"> <b> <input type="radio"> B.</b> East Africa</p>
+    <p class="options"> <b> <input type="radio"> C.</b> South Africa</p>
+    <p class="options"> <b> <input type="radio"> D.</b> West Africa</p>
+    <div id="bf">
+      <a href="#">&#8592;</a>
+      
+      <a href="#">&#8594;</a>
+    </div>
+  </div>
+  <button id="continue">continue</button>
+  <div class="timer" id="count-down">00:00</div>
+  <div class="timer" id="time">00:00:00</div>
+  
+  
+  
+  <script>
+    let timeLeft = 60 // in seconds
+    const countDown = document.getElementById("count-down");
+    const time = document.getElementById("time");
+    
+    const runDown = setInterval(() => {
+      timeLeft--;
+      countDown.textContent = `00:${timeLeft}`;
+      if (timeLeft <= 0) {
+        clearInterval(runDown);
+      }
+    }, 1000);
+    
+    function liveClock() {
+      const currentTime = new Date().toLocaleTimeString();
+      time.textContent = currentTime;
+    }
+    
+    setInterval(liveClock, 1000);
+    
+    liveClock();
+    
+    // Quiz Section
+    const questions = [
+      {
+        text: "Where in Africa is Morocco located?",
+        options: ["North Africa", "East Africa", "South Africa", "West Africa"],
+        answer: "North Africa"
+      },
+      {
+        text: 
+      },
+    ];
+    
+  </script>
 </body>
 </html>

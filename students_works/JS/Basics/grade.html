@@ -150,11 +150,13 @@
         try {
           let result = calculateExpression(display.value);
           display.value = result;
-        } catch {
+        }
+        catch {
           alert("Invalid Expression!");
           display.value = "";
         }
-      } else {
+      }
+      else {
         display.value += x;
       }
     }
@@ -169,7 +171,8 @@
           numbers.push(parseFloat(currentNum));
           operators.push(char);
           currentNum = '';
-        } else {
+        }
+        else {
           currentNum += char;
         }
       }
@@ -185,11 +188,21 @@
       for (let i = 0; i < operators.length; i++) {
         let op = operators[i];
         let num = numbers[i+1];
-        if (op === '+') result = add(result, num);
-        else if (op === '-') result = sub(result, num);
-        else if (op === '×') result = mul(result, num);
-        else if (op === '÷') result = div(result, num);
-        else if (op === '%') result = mod(result, num);
+        if (op === '+') {
+          result = add(result, num);
+        }
+        else if (op === '-') {
+          result = sub(result, num);
+        }
+        else if (op === '×') {
+          result = mul(result, num);
+        }
+        else if (op === '÷') {
+          result = div(result, num);
+        }
+        else if (op === '%') {
+          result = mod(result, num);
+        }
       }
       return result;
     }
@@ -203,7 +216,8 @@
       // Remove the last character only
       display.value = display.value.slice(0, -1);
     }
-
+    
+    
   </script>
 </body>
 </html>
